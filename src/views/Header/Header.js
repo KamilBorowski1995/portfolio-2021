@@ -37,10 +37,11 @@ const Wrapper = styled.header`
   background-color: #171717;
   color: #dbdbdb;
   width: 100vw;
-  height: calc(100vh - 100px);
-  /* width: 100vw;
-  height: 100vh; */
-  margin: 50px auto 0;
+  /* height: calc(100vh - 100px); */
+  /* width: 100vw; */
+  /* margin: 50px auto 0; */
+  margin: 0 auto;
+  height: 100vh;
   font-family: "Handlee";
   /* font-family: "Ink Free"; */
   letter-spacing: 5px;
@@ -56,8 +57,8 @@ const WrapperText = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 60px;
-  margin-bottom: 20px;
+  font-size: 80px;
+  margin-bottom: 15px;
   z-index: 1;
 `;
 
@@ -75,11 +76,11 @@ const Letter = styled.span`
 `;
 
 const LetterWhite = styled(Letter)`
-  width: 10px;
+  width: 15px;
 `;
 
 const Paragraph = styled.p`
-  font-size: 30px;
+  font-size: 35px;
   z-index: 1;
 `;
 
@@ -105,6 +106,32 @@ const StyledCircle = styled(Circle)`
   :nth-child(6) {
     top: 23%;
     left: 50%;
+  }
+`;
+
+const StyledButton = styled.button`
+  position: absolute;
+  transform: translateX(-50%);
+  bottom: 100px;
+  /* width: 250px; */
+  border: 1px solid #f5f5f5;
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 15px 40px;
+  text-transform: uppercase;
+  color: #f5f5f5;
+  cursor: none;
+
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+
+  transition: 0.3s ease-in-out;
+  z-index: 0;
+  :hover {
+    background-color: #313131;
+    color: #f5f5f5;
+    border: 1px solid #313131;
   }
 `;
 
@@ -136,6 +163,8 @@ const Header = () => {
       <StyledCircle size={300} />
       <StyledCircle size={150} />
       <StyledCircle size={130} />
+
+      <StyledButton>Projekty</StyledButton>
     </Wrapper>
   );
 };

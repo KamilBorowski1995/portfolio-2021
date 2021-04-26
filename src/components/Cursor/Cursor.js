@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  z-index: 99;
+  z-index: 999;
   position: fixed;
+  pointer-events: none;
   width: 30px;
   height: 30px;
   mix-blend-mode: difference;
@@ -25,7 +26,7 @@ const CursorBorder = styled(CursorCircle)`
   height: 100%;
   background-color: transparent;
   border: 2px solid #dbdbdb;
-  transition: 0.1s linear;
+  transition: 0.15s;
 `;
 
 const Cursor = () => {
