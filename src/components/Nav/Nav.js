@@ -10,12 +10,13 @@ const Wrapper = styled.nav`
   width: 100%;
   height: 50px;
   display: flex;
-  padding: 20px;
+  padding: 60px 20px;
   margin-left: 100px;
 `;
 
 const StyledLink = styled.a`
-  margin-left: 10px;
+  margin-left: 20px;
+  cursor: none;
 `;
 
 const Nav = () => {

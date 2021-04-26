@@ -9,6 +9,11 @@ const Wrapper = styled.div`
   border-radius: 50%;
   background-color: #313131;
   transition: 1s;
+
+  @media (max-width: 800px) {
+    width: ${(props) => `${props.size / 15}vw`};
+    height: ${(props) => `${props.size / 15}vw`};
+  }
 `;
 
 const Circle = ({ className, size = 200 }) => {

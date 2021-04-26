@@ -33,15 +33,19 @@ from {
 `;
 
 const Wrapper = styled.header`
+  scroll-margin: 10px;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
   position: relative;
   background-color: #171717;
   color: #dbdbdb;
   width: 100vw;
+  padding: 10px;
   /* height: calc(100vh - 100px); */
   /* width: 100vw; */
   /* margin: 50px auto 0; */
   margin: 0 auto;
-  height: 100vh;
+  height: 100%;
   font-family: "Handlee";
   /* font-family: "Ink Free"; */
   letter-spacing: 5px;
@@ -60,6 +64,19 @@ const Title = styled.h1`
   font-size: 80px;
   margin-bottom: 15px;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 800px) {
+    font-size: 50px;
+    flex-direction: column;
+  }
+`;
+const TitleEdit = styled.div``;
+const ParagraphEdit = styled.div`
+  @media (max-width: 800px) {
+    margin-bottom: 10px;
+  }
 `;
 
 const Letter = styled.span`
@@ -82,6 +99,13 @@ const LetterWhite = styled(Letter)`
 const Paragraph = styled.p`
   font-size: 35px;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 800px) {
+    font-size: 25px;
+    flex-direction: column;
+  }
 `;
 
 const StyledCircle = styled(Circle)`
@@ -135,27 +159,40 @@ const StyledButton = styled.button`
   }
 `;
 
-const LetterMap = ({ children }) => {
-  const array = [];
-  for (let i = 0; i < children.length; i++) {
-    array.push(children[i]);
-  }
-  return array.map((el) => {
-    if (el === " ") {
-      return <LetterWhite>{el}</LetterWhite>;
-    } else return <Letter>{el}</Letter>;
-  });
-};
-
 const Header = () => {
+  const LetterMap = ({ children }) => {
+    const array = [];
+    for (let i = 0; i < children.length; i++) {
+      array.push(children[i]);
+    }
+    return array.map((el) => {
+      if (el === " ") {
+        return <LetterWhite>{el}</LetterWhite>;
+      } else return <Letter>{el}</Letter>;
+    });
+  };
+
   return (
     <Wrapper className="App-header">
       <WrapperText>
         <Title>
-          <LetterMap>Kamil Borowski</LetterMap>
+          <TitleEdit>
+            <LetterMap>Kamil </LetterMap>
+          </TitleEdit>
+          <TitleEdit>
+            <LetterMap>Borowski </LetterMap>
+          </TitleEdit>
         </Title>
         <Paragraph>
-          <LetterMap> Junior fron-end Developer</LetterMap>
+          <ParagraphEdit>
+            <LetterMap>Junior </LetterMap>
+          </ParagraphEdit>
+          <ParagraphEdit>
+            <LetterMap>fron-end </LetterMap>
+          </ParagraphEdit>
+          <ParagraphEdit>
+            <LetterMap>Developer </LetterMap>
+          </ParagraphEdit>
         </Paragraph>
       </WrapperText>
       <StyledCircle size={380} />
