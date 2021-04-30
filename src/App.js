@@ -5,6 +5,7 @@ import "./App.css";
 import Cursor from "./components/Cursor/Cursor";
 import Nav from "./components/Nav/Nav";
 import Header from "./views/Header/Header";
+import Skills from "./views/Skills/Skills";
 
 const WrapperScrollSnapping = styled.div`
   height: 100vh;
@@ -28,7 +29,7 @@ function App() {
       <Cursor />
       <WrapperScrollSnapping>
         <Header />
-        <Header />
+        <Skills />
       </WrapperScrollSnapping>
 
       <Nav />
