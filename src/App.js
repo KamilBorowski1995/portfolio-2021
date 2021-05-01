@@ -40,7 +40,7 @@ function App() {
         <FakeElement />
       </WrapperScrollSnapping>
 
-      <Nav />
+      {/* <Nav /> */}
     </div>
   );
 }

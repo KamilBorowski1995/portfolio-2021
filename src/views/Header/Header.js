@@ -39,15 +39,15 @@ const Wrapper = styled.header`
   width: 100vw;
   padding: 10px;
   overflow: hidden;
-  /* height: calc(100vh - 100px); */
-  /* width: 100vw; */
-  /* margin: 50px auto 0; */
+
   margin: 0 auto;
   height: 100%;
   font-family: "Handlee";
-  /* font-family: "Ink Free"; */
+
   letter-spacing: 5px;
   text-transform: uppercase;
+
+  box-shadow: 0 0 10px 3px #171717;
 `;
 
 const WrapperText = styled.div`

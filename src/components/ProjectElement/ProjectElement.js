@@ -9,22 +9,21 @@ import SVGPlay from "../../assets/svg/play.svg";
 
 const Wrapper = styled.div`
   max-width: 1400px;
-  margin: 25px auto;
+  margin: 0px auto;
 
   font-family: "Handlee";
   letter-spacing: 5px;
   text-transform: uppercase;
 `;
 
-const WrapperTech = styled.div``;
-
-const WrapperImages = styled.div``;
-
 const StyledImageBox = styled.div`
-  width: 500px;
+  /* min-width: 300px;
+  max-width: 500px; */
   overflow: hidden;
   border-radius: 15px;
+  border: 2px solid #dbdbdb;
   position: relative;
+
   color: #171717;
 
   :hover > img {
@@ -33,6 +32,7 @@ const StyledImageBox = styled.div`
 
   :hover > div {
     opacity: 0.9;
+    transform: scale(1);
   }
 `;
 
@@ -50,7 +50,12 @@ const WrapperInfo = styled.div`
   height: 100%;
   background-color: #fff;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
   opacity: 0;
+  transform: scale(1.1);
   transition: 0.4s ease-in-out;
 `;
 
@@ -58,16 +63,44 @@ const StyledTitle = styled.h3`
   font-family: "Roboto Condensed", sans-serif;
   font-size: 24px;
   letter-spacing: 2px;
-  padding: 20px;
+  /* padding: 20px; */
+
+  @media (max-width: 800px) {
+    /* padding: 10px; */
+  }
+`;
+
+const WrapperSvgLogos = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 0 0 20px; */
 `;
 
 const StyledSvg = styled.img`
   width: 50px;
-  padding: 0 10px 30px;
+  margin: 0 10px;
+
+  @media (max-width: 800px) {
+    width: 25px;
+    margin: 0 5px;
+  }
 `;
-const StyledSvgLink = styled(StyledSvg)`
-  width: 70px;
+
+const StyledLink = styled.a`
+  margin: 0 20px;
+  @media (max-width: 800px) {
+    margin: 0 10px;
+  }
+`;
+const StyledSvgLink = styled.img`
   transition: 0.2s linear;
+
+  width: 60px;
+
+  @media (max-width: 800px) {
+    width: 40px;
+  }
   :hover {
     transform: scale(1.2);
   }
@@ -80,7 +113,7 @@ const ProjectElement = ({ name, tech, link, image }) => {
         <StyledImage src={image} alt="obrazek ze strony" />
         <WrapperInfo>
           <StyledTitle>{name}</StyledTitle>
-          <div>
+          <WrapperSvgLogos>
             {tech.map((el) => {
               if (el === "react")
                 return <StyledSvg src={SVGReact} alt="obrazek ze strony" />;
@@ -90,9 +123,20 @@ const ProjectElement = ({ name, tech, link, image }) => {
                 return <StyledSvg src={SVGAJs} alt="obrazek ze strony" />;
               else return null;
             })}
+          </WrapperSvgLogos>
+          <div>
+            {link.git && (
+              <StyledLink href={link.git} target="_blank" rel="noreferrer">
+                <StyledSvgLink src={SVGGithub} alt="obrazek ze strony" />
+              </StyledLink>
+            )}
+
+            {link.live && (
+              <StyledLink href={link.live} target="_blank" rel="noreferrer">
+                <StyledSvgLink src={SVGPlay} alt="obrazek ze strony" />
+              </StyledLink>
+            )}
           </div>
-          <StyledSvgLink src={SVGGithub} alt="obrazek ze strony" />
-          <StyledSvgLink src={SVGPlay} alt="obrazek ze strony" />
         </WrapperInfo>
       </StyledImageBox>
     </Wrapper>
