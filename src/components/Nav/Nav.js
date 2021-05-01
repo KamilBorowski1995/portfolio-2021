@@ -19,6 +19,14 @@ const StyledLink = styled.a`
   cursor: none;
 `;
 
+const StyledImage = styled.img`
+  transition: 0.3s ease-in-out;
+
+  :hover {
+    transform: scale(1.3);
+  }
+`;
+
 const Nav = () => {
   return (
     <Wrapper>
@@ -27,14 +35,14 @@ const Nav = () => {
         target="_blank"
         rel="noreferrer"
       >
-        <img src={GH_SVG} alt="Github Logo z linkiem" />
+        <StyledImage src={GH_SVG} alt="Github Logo z linkiem" />
       </StyledLink>
       <StyledLink
         href="https://github.com/KamilBorowski1995"
         target="_blank"
         rel="noreferrer"
       >
-        <img src={FB_SVG} alt="Facebook Logo z linkiem" />
+        <StyledImage src={FB_SVG} alt="Facebook Logo z linkiem" />
       </StyledLink>
     </Wrapper>
   );

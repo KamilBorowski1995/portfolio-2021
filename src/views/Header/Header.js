@@ -33,14 +33,12 @@ from {
 `;
 
 const Wrapper = styled.header`
-  scroll-margin: 10px;
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
   position: relative;
   background-color: #171717;
   color: #dbdbdb;
   width: 100vw;
   padding: 10px;
+  overflow: hidden;
   /* height: calc(100vh - 100px); */
   /* width: 100vw; */
   /* margin: 50px auto 0; */

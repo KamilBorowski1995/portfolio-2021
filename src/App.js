@@ -5,13 +5,14 @@ import "./App.css";
 import Cursor from "./components/Cursor/Cursor";
 import Nav from "./components/Nav/Nav";
 import Header from "./views/Header/Header";
+import Project from "./views/Project/Project";
 import Skills from "./views/Skills/Skills";
 
 const WrapperScrollSnapping = styled.div`
   height: 100vh;
   width: 100%;
-  overflow: scroll;
-  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   ::-webkit-scrollbar {
     display: none;
@@ -23,6 +24,11 @@ const WrapperScrollSnapping = styled.div`
   scroll-snap-stop: normal; */
 `;
 
+const FakeElement = styled.div`
+  height: 300vh;
+  background-color: royalblue;
+`;
+
 function App() {
   return (
     <div className="App">
@@ -30,6 +36,8 @@ function App() {
       <WrapperScrollSnapping>
         <Header />
         <Skills />
+        <Project />
+        <FakeElement />
       </WrapperScrollSnapping>
 
       <Nav />

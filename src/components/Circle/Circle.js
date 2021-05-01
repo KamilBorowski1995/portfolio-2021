@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 
 import styled from "styled-components";
 
@@ -21,8 +21,6 @@ const Circle = ({ className, size = 200 }) => {
   const [posY, setPosY] = useState(0);
   const [posXCursor, setPosXCursor] = useState(0);
   const [posYCursor, setPosYCursor] = useState(0);
-
-  const [position, setPosition] = useState("");
 
   const refElement = useRef(null);
 
@@ -49,11 +47,7 @@ const Circle = ({ className, size = 200 }) => {
     } else {
       setPosY((prev) => prev + 20);
     }
-    // setPosX(posXCursor - leftEl);
   }
-  // useEffect(() => {
-  //   moveElement();
-  // }, []);
 
   return (
     <Wrapper
@@ -61,18 +55,8 @@ const Circle = ({ className, size = 200 }) => {
       size={size}
       className={className}
       style={style}
-      //   onMouseDown={() => setGrab(true)}
-      //   onMouseUp={() => setGrab(false)}
-      onMouseEnter={
-        moveElement
-        // (e) => {
-        // setPosX(e.clientX / 4);
-        // setPosY(e.clientY / 4);
-        // }
-      }
-    >
-      {position}
-    </Wrapper>
+      onMouseEnter={moveElement}
+    ></Wrapper>
   );
 };
 
