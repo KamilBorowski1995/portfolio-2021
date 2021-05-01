@@ -4,14 +4,12 @@ import ProjectElement from "../../components/ProjectElement/ProjectElement";
 import Title from "../../components/Title/Title";
 
 import CarPCImage from "../../assets/image/car-pc.png";
-import CarPhone1Image from "../../assets/image/car-phone1.jpg";
-import CarPhone2Image from "../../assets/image/car-phone2.jpg";
 
 const db = [
   {
     name: "Car-sharing",
-    tech: ["React"],
-    image: [CarPCImage, CarPhone1Image, CarPhone2Image],
+    tech: ["react"],
+    image: CarPCImage,
     link: {
       git: "https://github.com/KamilBorowski1995/car-sharing",
       live: "https://kamilborowski1995.github.io/car-sharing/",
@@ -19,8 +17,8 @@ const db = [
   },
   {
     name: "Car-sharing",
-    tech: ["React"],
-    image: [CarPCImage, CarPhone1Image, CarPhone2Image],
+    tech: ["react", "node", "js"],
+    image: CarPCImage,
     link: {
       git: "https://github.com/KamilBorowski1995/car-sharing",
       live: "https://kamilborowski1995.github.io/car-sharing/",
@@ -28,8 +26,8 @@ const db = [
   },
   {
     name: "Car-sharing",
-    tech: ["React"],
-    image: [CarPCImage, CarPhone1Image, CarPhone2Image],
+    tech: ["js"],
+    image: CarPCImage,
     link: {
       git: "https://github.com/KamilBorowski1995/car-sharing",
       live: "https://kamilborowski1995.github.io/car-sharing/",
