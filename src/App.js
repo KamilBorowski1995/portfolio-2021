@@ -3,7 +3,7 @@ import styled from "styled-components";
 import "./App.css";
 
 import Cursor from "./components/Cursor/Cursor";
-import Nav from "./components/Nav/Nav";
+// import Nav from "./components/Nav/Nav";
 import Header from "./views/Header/Header";
 import Project from "./views/Project/Project";
 import Skills from "./views/Skills/Skills";
@@ -17,6 +17,8 @@ const WrapperScrollSnapping = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
+
+  scroll-behavior: smooth;
 
   // children
   /* scroll-margin: 10px;

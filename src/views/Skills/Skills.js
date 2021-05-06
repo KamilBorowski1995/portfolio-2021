@@ -9,6 +9,7 @@ import SVGAHTML5 from "../../assets/svg/html5.svg";
 import SVGAJs from "../../assets/svg/js.svg";
 import SVGANode from "../../assets/svg/nodejs.svg";
 import SVGReact from "../../assets/svg/react.svg";
+import SVGMongo from "../../assets/svg/mongodb.svg";
 
 const db = [
   {
@@ -38,6 +39,11 @@ const db = [
   },
 
   {
+    name: "mongodb",
+    path: SVGMongo,
+    from: "https://simpleicons.org/",
+  },
+  {
     name: "github",
     path: SVGGithub,
     from: "https://simpleicons.org/",
@@ -52,7 +58,11 @@ const db = [
 
 const Wrapper = styled.div`
   background-color: #f5f5f5;
-  padding: 50px;
+  padding: 100px;
+
+  @media (max-width: 800px) {
+    padding: 25px;
+  }
 `;
 
 const WrapperImg = styled.div`

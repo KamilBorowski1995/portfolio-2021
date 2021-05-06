@@ -3,6 +3,7 @@ import styled from "styled-components";
 import SVGAJs from "../../assets/svg/js.svg";
 import SVGANode from "../../assets/svg/nodejs.svg";
 import SVGReact from "../../assets/svg/react.svg";
+import SVGMongo from "../../assets/svg/mongodb.svg";
 
 import SVGGithub from "../../assets/svg/github.svg";
 import SVGPlay from "../../assets/svg/play.svg";
@@ -14,11 +15,14 @@ const Wrapper = styled.div`
   font-family: "Handlee";
   letter-spacing: 5px;
   text-transform: uppercase;
+
+  @media (max-width: 800px) {
+    margin-bottom: 5px;
+  }
 `;
 
 const StyledImageBox = styled.div`
-  /* min-width: 300px;
-  max-width: 500px; */
+  height: 100%;
   overflow: hidden;
   border-radius: 15px;
   border: 2px solid #dbdbdb;
@@ -38,6 +42,7 @@ const StyledImageBox = styled.div`
 
 const StyledImage = styled.img`
   width: 100%;
+  height: 100%;
   transform: scale(1);
   transition: 0.4s ease-in-out;
 `;
@@ -78,7 +83,7 @@ const WrapperSvgLogos = styled.div`
 `;
 
 const StyledSvg = styled.img`
-  width: 50px;
+  height: 40px;
   margin: 0 10px;
 
   @media (max-width: 800px) {
@@ -116,11 +121,12 @@ const ProjectElement = ({ name, tech, link, image }) => {
           <WrapperSvgLogos>
             {tech.map((el) => {
               if (el === "react")
-                return <StyledSvg src={SVGReact} alt="obrazek ze strony" />;
+                return <StyledSvg src={SVGReact} alt="logo react" />;
               if (el === "node")
-                return <StyledSvg src={SVGANode} alt="obrazek ze strony" />;
-              if (el === "js")
-                return <StyledSvg src={SVGAJs} alt="obrazek ze strony" />;
+                return <StyledSvg src={SVGANode} alt="logo node.js" />;
+              if (el === "mongodb")
+                return <StyledSvg src={SVGMongo} alt="logo mongodb" />;
+              if (el === "js") return <StyledSvg src={SVGAJs} alt="logo js" />;
               else return null;
             })}
           </WrapperSvgLogos>

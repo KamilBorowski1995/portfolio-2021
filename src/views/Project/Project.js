@@ -8,17 +8,19 @@ import CosmosWarGamePage from "../../assets/image/cosmoswar.png";
 import FotoikaPage from "../../assets/image/fotoika.png";
 import ProxPage from "../../assets/image/prox-shop.png";
 import ManaorderPage from "../../assets/image/manaorder-1.png";
+import Planner from "../../assets/image/planner.png";
 
 const db = [
   {
-    name: "Car-sharing",
-    tech: ["react"],
-    image: CarPage,
+    name: "Manaorder",
+    tech: ["react", "node", "mongodb"],
+    image: ManaorderPage,
     link: {
-      git: "https://github.com/KamilBorowski1995/car-sharing",
-      live: "https://kamilborowski1995.github.io/car-sharing/",
+      git: "https://github.com/KamilBorowski1995/ManaOrder",
+      live: "https://kamilborowski1995.github.io/ManaOrder/",
     },
   },
+
   {
     name: "CosmosWar",
     tech: ["react"],
@@ -30,7 +32,7 @@ const db = [
   },
   {
     name: "Fotoika.com",
-    tech: ["react", "node"],
+    tech: ["react", "node", "mongodb"],
     image: FotoikaPage,
     link: {
       live: "http://fotoika.com/",
@@ -38,23 +40,36 @@ const db = [
   },
   {
     name: "Prox - Sklep",
-    tech: ["react", "node"],
+    tech: ["react", "node", "mongodb"],
     image: ProxPage,
     link: {},
   },
   {
-    name: "Manaorder",
-    tech: ["react", "node"],
-    image: ManaorderPage,
+    name: "Car-sharing",
+    tech: ["react"],
+    image: CarPage,
+    link: {
+      git: "https://github.com/KamilBorowski1995/car-sharing",
+      live: "https://kamilborowski1995.github.io/car-sharing/",
+    },
+  },
+  {
+    name: "Planner Mobile",
+    tech: ["react", "node", "mongodb"],
+    image: Planner,
     link: {},
   },
 ];
 
 const Wrapper = styled.div`
   background-color: #171717;
-  padding: 50px;
+  padding: 100px;
 
   color: #f5f5f5;
+
+  @media (max-width: 800px) {
+    padding: 25px;
+  }
 `;
 
 const StyledTitle = styled(Title)`
@@ -81,7 +96,7 @@ const WrapperElements = styled.div`
 
 const Project = () => {
   return (
-    <Wrapper>
+    <Wrapper id="projects">
       <StyledTitle>#Projekty</StyledTitle>
       <WrapperElements>
         {db.map(({ name, tech, link, image }) => (

@@ -131,7 +131,7 @@ const StyledCircle = styled(Circle)`
   }
 `;
 
-const StyledButton = styled.button`
+const StyledButton = styled.a`
   position: absolute;
   transform: translateX(-50%);
   bottom: 100px;
@@ -143,6 +143,7 @@ const StyledButton = styled.button`
   text-transform: uppercase;
   color: #f5f5f5;
   cursor: none;
+  text-decoration: none;
 
   font-family: "Roboto Condensed", sans-serif;
   font-size: 24px;
@@ -152,7 +153,6 @@ const StyledButton = styled.button`
   z-index: 0;
   :hover {
     background-color: #313131;
-    color: #f5f5f5;
     border: 1px solid #313131;
   }
 `;
@@ -199,7 +199,7 @@ const Header = () => {
       <StyledCircle size={150} />
       <StyledCircle size={130} />
 
-      <StyledButton>Projekty</StyledButton>
+      <StyledButton href="#projects">Projekty</StyledButton>
     </Wrapper>
   );
 };
