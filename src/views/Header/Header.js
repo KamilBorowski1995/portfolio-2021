@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
 import Circle from "../../components/Circle/Circle";
 
@@ -47,7 +47,17 @@ const Wrapper = styled.header`
   letter-spacing: 5px;
   text-transform: uppercase;
 
-  box-shadow: 0 0 10px 3px #171717;
+  transition: 0.3s ease-in-out;
+
+  clip-path: polygon(0 0%, 100% 0, 100% 100%, 0% 100%);
+
+  @media (min-width: 800px) {
+    ${({ ticking }) =>
+      ticking === true &&
+      css`
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 97%);
+      `}
+  }
 `;
 
 const WrapperText = styled.div`
@@ -157,7 +167,7 @@ const StyledButton = styled.a`
   }
 `;
 
-const Header = () => {
+const Header = ({ ticking }) => {
   const LetterMap = ({ children }) => {
     const array = [];
     for (let i = 0; i < children.length; i++) {
@@ -171,7 +181,7 @@ const Header = () => {
   };
 
   return (
-    <Wrapper className="App-header">
+    <Wrapper id="home" className="App-header" ticking={ticking}>
       <WrapperText>
         <Title>
           <TitleEdit>

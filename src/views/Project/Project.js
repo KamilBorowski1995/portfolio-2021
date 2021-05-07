@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import ProjectElement from "../../components/ProjectElement/ProjectElement";
 
 import Title from "../../components/Title/Title";
@@ -57,7 +57,10 @@ const db = [
     name: "Planner Mobile",
     tech: ["react", "node", "mongodb"],
     image: Planner,
-    link: {},
+    link: {
+      git: "https://github.com/KamilBorowski1995/planner",
+      live: "https://kamilborowski1995.github.io/planner/",
+    },
   },
 ];
 
@@ -69,6 +72,18 @@ const Wrapper = styled.div`
 
   @media (max-width: 800px) {
     padding: 25px;
+  }
+
+  transition: 0.3s ease-in-out;
+
+  clip-path: polygon(0 0%, 100% 0, 100% 100%, 0% 100%);
+
+  @media (min-width: 800px) {
+    ${({ ticking }) =>
+      ticking === true &&
+      css`
+        clip-path: polygon(0 0, 100% 3%, 100% 100%, 0 97%);
+      `}
   }
 `;
 
@@ -94,9 +109,9 @@ const WrapperElements = styled.div`
   }
 `;
 
-const Project = () => {
+const Project = ({ ticking }) => {
   return (
-    <Wrapper id="projects">
+    <Wrapper id="projects" ticking={ticking}>
       <StyledTitle>#Projekty</StyledTitle>
       <WrapperElements>
         {db.map(({ name, tech, link, image }) => (

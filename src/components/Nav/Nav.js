@@ -1,49 +1,88 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import GH_SVG from "../../assets/svg/iconGitGub.svg";
-import FB_SVG from "../../assets/svg/iconFacebook.svg";
 
 const Wrapper = styled.nav`
-  /* background-color: #fff; */
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  display: flex;
-  padding: 60px 20px;
-  margin-left: 100px;
-`;
+  top: 50%;
+  right: 50px;
 
-const StyledLink = styled.a`
-  margin-left: 20px;
-  cursor: none;
-`;
+  transform: translateY(-50%);
 
-const StyledImage = styled.img`
-  transition: 0.3s ease-in-out;
-
-  :hover {
-    transform: scale(1.3);
+  @media (max-width: 800px) {
+    right: 20px;
   }
 `;
 
-const Nav = () => {
+const StyledLinkNav = styled.li`
+  width: 20px;
+  height: 20px;
+  background-color: ${({ name, activePage }) =>
+    name === activePage ? "#6b6b6b" : "#313131"};
+  margin: 20px 0;
+
+  border-radius: 50%;
+
+  transition: 0.3s ease-in-out;
+  list-style: none;
+
+  @media (max-width: 800px) {
+    width: 15px;
+    height: 15px;
+  }
+
+  :hover {
+    background-color: #494949;
+    transform: scale(1.1);
+  }
+`;
+
+const StyledLink = styled.a`
+  display: block;
+  width: 100%;
+  height: 100%;
+`;
+
+const Nav = ({ scrollTop }) => {
+  const [activePage, setActivePage] = useState("home");
+
+  useEffect(() => {
+    const home = document.getElementById("home");
+    const skills = document.getElementById("skills");
+    const projects = document.getElementById("projects");
+    const contact = document.getElementById("contact");
+
+    const arrayElements = [home, skills, projects, contact];
+
+    for (let i = 0; i < arrayElements.length; i++) {
+      if (
+        scrollTop >= arrayElements[i].offsetTop &&
+        scrollTop < arrayElements[i + 1].offsetTop
+      ) {
+        setActivePage(arrayElements[i].id);
+      }
+    }
+  });
+
+  useEffect(() => {
+    console.log(activePage);
+  }, [activePage]);
+
   return (
     <Wrapper>
-      <StyledLink
-        href="https://github.com/KamilBorowski1995"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <StyledImage src={GH_SVG} alt="Github Logo z linkiem" />
-      </StyledLink>
-      <StyledLink
-        href="https://github.com/KamilBorowski1995"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <StyledImage src={FB_SVG} alt="Facebook Logo z linkiem" />
-      </StyledLink>
+      <ul>
+        <StyledLinkNav name="home" activePage={activePage}>
+          <StyledLink href="#home"></StyledLink>
+        </StyledLinkNav>
+        <StyledLinkNav name="skills" activePage={activePage}>
+          <StyledLink href="#skills"></StyledLink>
+        </StyledLinkNav>
+        <StyledLinkNav name="projects" activePage={activePage}>
+          <StyledLink href="#projects"></StyledLink>
+        </StyledLinkNav>
+        <StyledLinkNav name="contact" activePage={activePage}>
+          <StyledLink href="#contact"></StyledLink>
+        </StyledLinkNav>
+      </ul>
     </Wrapper>
   );
 };

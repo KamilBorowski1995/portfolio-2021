@@ -30,6 +30,8 @@ const StyledImageBox = styled.div`
 
   color: #171717;
 
+  transition: 0.4s ease-in-out;
+
   :hover > img {
     transform: scale(1.2);
   }

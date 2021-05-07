@@ -85,7 +85,7 @@ const StyledImage = styled.img`
 
 const Skills = () => {
   return (
-    <Wrapper>
+    <Wrapper id="skills">
       <Title>#Skillsy</Title>
       <WrapperImg>
         {db.map(({ name, path, from }) => (
