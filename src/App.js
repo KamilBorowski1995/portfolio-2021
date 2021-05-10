@@ -131,7 +131,7 @@ function App() {
         }}
       >
         <Header ticking={ticking} />
-        <Skills db={dbSkills}>Skills</Skills>
+        <Skills db={dbSkills}>Skillsy</Skills>
         <Skills db={dbLearn}>W trakcie nauki</Skills>
         <Project ticking={ticking} />
         <Contact />
