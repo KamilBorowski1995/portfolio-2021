@@ -10,6 +10,81 @@ import Header from "./views/Header/Header";
 import Project from "./views/Project/Project";
 import Skills from "./views/Skills/Skills";
 
+import SVGAdobe from "./assets/svg/adobexd.svg";
+import SVGCss3 from "./assets/svg/css3.svg";
+import SVGGithub from "./assets/svg/github.svg";
+import SVGAHTML5 from "./assets/svg/html5.svg";
+import SVGAJs from "./assets/svg/js.svg";
+import SVGANode from "./assets/svg/nodejs.svg";
+import SVGReact from "./assets/svg/react.svg";
+import SVGMongo from "./assets/svg/mongodb.svg";
+import SVGNest from "./assets/svg/nest.svg";
+import SVGRedux from "./assets/svg/redux.svg";
+import SVGTJ from "./assets/svg/ts.svg";
+
+const dbSkills = [
+  {
+    name: "html5",
+    path: SVGAHTML5,
+    from: "https://simpleicons.org/",
+  },
+  {
+    name: "css3",
+    path: SVGCss3,
+    from: "https://simpleicons.org/",
+  },
+  {
+    name: "javascript",
+    path: SVGAJs,
+    from: "https://fontawesome.com/",
+  },
+  {
+    name: "react",
+    path: SVGReact,
+    from: "https://simpleicons.org/",
+  },
+  {
+    name: "node",
+    path: SVGANode,
+    from: "https://fontawesome.com/",
+  },
+
+  {
+    name: "mongodb",
+    path: SVGMongo,
+    from: "https://simpleicons.org/",
+  },
+  {
+    name: "github",
+    path: SVGGithub,
+    from: "https://simpleicons.org/",
+  },
+
+  {
+    name: "adobexd",
+    path: SVGAdobe,
+    from: "https://simpleicons.org/",
+  },
+];
+
+const dbLearn = [
+  {
+    name: "Nest.js",
+    path: SVGNest,
+    from: "https://seeklogo.com",
+  },
+  {
+    name: "Redux",
+    path: SVGRedux,
+    from: "https://simpleicons.org/",
+  },
+  {
+    name: "TypeScript",
+    path: SVGTJ,
+    from: "https://fontawesome.com/",
+  },
+];
+
 const WrapperScrollSnapping = styled.div`
   height: 100vh;
   width: 100%;
@@ -47,17 +122,6 @@ function App() {
   return (
     <div className="App">
       <Cursor />
-      {/* <div
-        style={{
-          position: "fixed",
-          top: "20px",
-          left: "10%",
-          color: "red",
-          zIndex: "9999",
-        }}
-      >
-        {scrollTop}
-      </div> */}
       <WrapperScrollSnapping
         ref={refWrapper}
         ticking={ticking}
@@ -67,7 +131,8 @@ function App() {
         }}
       >
         <Header ticking={ticking} />
-        <Skills />
+        <Skills db={dbSkills}>Skills</Skills>
+        <Skills db={dbLearn}>W trakcie nauki</Skills>
         <Project ticking={ticking} />
         <Contact />
       </WrapperScrollSnapping>
