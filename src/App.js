@@ -142,11 +142,15 @@ function App() {
   }, [ticking]);
 
   useEffect(() => {
-    window.onload = function () {
-      // setPageLoaded(true);
-      // setTimeout(() => setPageLoaded(true), 0);
+    if (window.onload !== null) {
+      window.onload = function () {
+        // setPageLoaded(true);
+        // setTimeout(() => setPageLoaded(true), 0);
+        setTimeout(() => setPageLoaded(true), 1000);
+      };
+    } else {
       setTimeout(() => setPageLoaded(true), 1000);
-    };
+    }
   }, []);
 
   return (
