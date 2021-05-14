@@ -70,12 +70,18 @@ to { transform: translateY(0%) }
 `;
 
 const amimationButton = keyframes`
-from { transform:translate(-50%, -50%) }
-25% { transform:translate(-50%, -50%) }
-49.99% { transform:translate(-50%, 500%) }
-50% { transform:translate(-50%, -500%) }
-75% { transform:translate(-50%, -50%) }
-to { transform: translate(-50%, -50%) }
+    0% {
+      opacity: 1
+    }
+    35% {
+      opacity: 0
+    }
+    65% {
+      opacity: 0
+    }   
+    100% {
+      opacity: 1
+    }
 `;
 
 const Wrapper = styled.header`
@@ -222,21 +228,22 @@ const StyledButton = styled.a`
 
   animation-duration: 1s;
   animation-fill-mode: backwards;
-  animation-delay: 3s;
+  animation-delay: 2s;
   animation-name: ${loadButton};
+
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
 `;
 
 const StyledArrow = styled.img`
   position: absolute;
   top: 50%;
   left: 50%;
+
   transform: translate(-50%, -50%);
 
-  animation-duration: 2s;
-  animation-fill-mode: none;
-  animation-iteration-count: infinite;
-  animation-delay: 3.5s;
-  animation-name: ${amimationButton};
+  animation: ${amimationButton} 3s infinite 2s;
 `;
 
 const Header = ({ ticking }) => {

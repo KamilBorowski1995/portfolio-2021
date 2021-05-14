@@ -4,13 +4,11 @@ import styled, { keyframes } from "styled-components";
 
 const loadElement = keyframes`
 from {
-    transform: translateY(-10%);
-    opacity: 0
+     opacity: 0
   }
   
    to {
-    transform: translateY(0%);
-    opacity: 1
+     opacity: 1
   }
 `;
 
@@ -22,9 +20,9 @@ const Wrapper = styled.div`
   background-color: #313131;
   transition: 1s;
 
-  animation-duration: 0.8s;
+  animation-duration: 1s;
   animation-fill-mode: backwards;
-  animation-delay: 2s;
+  animation-delay: 2.5s;
   animation-name: ${loadElement};
 
   @media (max-width: 800px) {
