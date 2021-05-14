@@ -73,7 +73,7 @@ const amimationButton = keyframes`
     0% {
       opacity: 1
     }
-    35% {
+    45% {
       opacity: 0
     }
     65% {

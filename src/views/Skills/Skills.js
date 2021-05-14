@@ -1,4 +1,6 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
+import LogoSkills from "../../components/LogoSkills/LogoSkills";
 
 import Title from "../../components/Title/Title";
 
@@ -24,46 +26,30 @@ const WrapperImg = styled.div`
 
   flex-wrap: wrap;
 `;
-const WrapperElement = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: 0.3s ease-in-out;
 
-  margin: 0 20px 50px;
+const Skills = ({ children, db, scrollTop }) => {
+  const ref = useRef(null);
 
-  :hover {
-    transform: scale(1.15);
-  }
-`;
+  useEffect(() => {
+    const offsetTopElement = ref.current.offsetTop;
 
-const StyledImage = styled.img`
-  padding: 15px;
+    if (offsetTopElement - window.innerHeight * 0.75 < scrollTop) {
+      const element = document.getElementById(`${children}`);
+      element.style.animation = `fadeUp 1s both`;
+    }
+  }, [children, scrollTop]);
 
-  max-height: 100px;
-`;
-
-const Paragraph = styled.p`
-  font-family: "Handlee", sans-serif;
-  text-transform: uppercase;
-
-  font-size: 16px;
-
-  @media (max-width: 800px) {
-    font-size: 14px;
-  }
-`;
-
-const Skills = ({ children, db }) => {
   return (
-    <Wrapper id="skills">
-      <Title>#{children}</Title>
+    <Wrapper id="skills" ref={ref}>
+      <Title id={children}>#{children}</Title>
       <WrapperImg>
         {db.map(({ name, path, from }) => (
-          <WrapperElement key={name}>
-            <StyledImage src={path} alt={from} />
-            <Paragraph>{name}</Paragraph>
-          </WrapperElement>
+          <LogoSkills
+            name={name}
+            path={path}
+            from={from}
+            scrollTop={scrollTop}
+          />
         ))}
       </WrapperImg>
     </Wrapper>

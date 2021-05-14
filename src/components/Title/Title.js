@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const StyledTitle = styled.h2`
+  opacity: 0;
+
   font-family: "Handlee", sans-serif;
 
   letter-spacing: 5px;
@@ -13,8 +15,12 @@ const StyledTitle = styled.h2`
   }
 `;
 
-const Title = ({ children, className }) => {
-  return <StyledTitle className={className}>{children}</StyledTitle>;
+const Title = ({ children, className, id }) => {
+  return (
+    <StyledTitle className={className} id={id}>
+      {children}
+    </StyledTitle>
+  );
 };
 
 export default Title;

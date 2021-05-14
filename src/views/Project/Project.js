@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import styled, { css } from "styled-components";
 import ProjectElement from "../../components/ProjectElement/ProjectElement";
 
@@ -89,6 +90,7 @@ const Wrapper = styled.section`
 
 const StyledTitle = styled(Title)`
   margin-bottom: 50px;
+  opacity: 1;
 `;
 
 const WrapperElements = styled.div`
@@ -105,7 +107,7 @@ const WrapperElements = styled.div`
   }
 `;
 
-const Project = ({ ticking }) => {
+const Project = ({ ticking, scrollTop }) => {
   return (
     <Wrapper id="projects" ticking={ticking}>
       <StyledTitle>#Projekty</StyledTitle>

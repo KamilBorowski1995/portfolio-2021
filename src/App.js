@@ -150,8 +150,6 @@ function App() {
   useEffect(() => {
     if (window.onload !== null) {
       window.onload = function () {
-        // setPageLoaded(true);
-        // setTimeout(() => setPageLoaded(true), 0);
         setTimeout(() => setPageLoaded(true), 1000);
       };
     } else {
@@ -173,10 +171,14 @@ function App() {
             }}
           >
             <Header ticking={ticking} />
-            <Skills db={dbSkills}>Skillsy</Skills>
-            <Skills db={dbLearn}>W trakcie nauki</Skills>
-            <Project ticking={ticking} />
-            <Contact />
+            <Skills db={dbSkills} scrollTop={scrollTop}>
+              Skillsy
+            </Skills>
+            <Skills db={dbLearn} scrollTop={scrollTop}>
+              W trakcie nauki
+            </Skills>
+            <Project ticking={ticking} scrollTop={scrollTop} />
+            <Contact scrollTop={scrollTop} />
           </WrapperScrollSnapping>
 
           <Nav scrollTop={scrollTop} />
