@@ -69,6 +69,15 @@ from { transform: translateY(100%) }
 to { transform: translateY(0%) }
 `;
 
+const amimationButton = keyframes`
+from { transform:translate(-50%, -50%) }
+25% { transform:translate(-50%, -50%) }
+49.99% { transform:translate(-50%, 500%) }
+50% { transform:translate(-50%, -500%) }
+75% { transform:translate(-50%, -50%) }
+to { transform: translate(-50%, -50%) }
+`;
+
 const Wrapper = styled.header`
   position: relative;
   background-color: #171717;
@@ -203,10 +212,13 @@ const StyledButton = styled.a`
 
   transition: 0.3s ease-in-out;
   z-index: 0;
+
   :hover {
     background-color: #313131;
     border: 1px solid #313131;
   }
+
+  overflow: hidden;
 
   animation-duration: 1s;
   animation-fill-mode: backwards;
@@ -219,6 +231,12 @@ const StyledArrow = styled.img`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  animation-duration: 2s;
+  animation-fill-mode: none;
+  animation-iteration-count: infinite;
+  animation-delay: 3.5s;
+  animation-name: ${amimationButton};
 `;
 
 const Header = ({ ticking }) => {
