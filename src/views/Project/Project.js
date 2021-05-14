@@ -107,7 +107,7 @@ const WrapperElements = styled.div`
   }
 `;
 
-const Project = ({ ticking, scrollTop }) => {
+const Project = ({ ticking }) => {
   return (
     <Wrapper id="projects" ticking={ticking}>
       <StyledTitle>#Projekty</StyledTitle>

@@ -3,13 +3,16 @@ import styled from "styled-components";
 
 const WrapperElement = styled.div`
   opacity: 0;
+
+  margin: 0 20px 50px;
+`;
+
+const StyledScale = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   transition: 0.3s ease-in-out;
-
-  margin: 0 20px 50px;
-
   :hover {
     transform: scale(1.15);
   }
@@ -46,8 +49,10 @@ const LogoSkills = ({ name, path, from, scrollTop }) => {
 
   return (
     <WrapperElement id={name} key={name} ref={ref}>
-      <StyledImage src={path} alt={from} />
-      <Paragraph>{name}</Paragraph>
+      <StyledScale>
+        <StyledImage src={path} alt={from} />
+        <Paragraph>{name}</Paragraph>
+      </StyledScale>
     </WrapperElement>
   );
 };
