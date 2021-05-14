@@ -243,7 +243,7 @@ const StyledArrow = styled.img`
 
   transform: translate(-50%, -50%);
 
-  animation: ${amimationButton} 3s infinite 2s;
+  animation: ${amimationButton} 4s infinite 2s;
 `;
 
 const Header = ({ ticking }) => {

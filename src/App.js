@@ -22,6 +22,7 @@ import SVGReact from "./assets/svg/react.svg";
 import SVGMongo from "./assets/svg/mongodb.svg";
 import SVGReactRouter from "./assets/svg/reactrouter.svg";
 import SVGSass from "./assets/svg/sass.svg";
+import SVGStoryBook from "./assets/svg/storybook.svg";
 import SVGSC from "./assets/svg/sc.svg";
 import SVGNest from "./assets/svg/nest.svg";
 import SVGRedux from "./assets/svg/redux.svg";
@@ -61,6 +62,11 @@ const dbSkills = [
   {
     name: "Styled-Components",
     path: SVGSC,
+    from: "https://simpleicons.org/",
+  },
+  {
+    name: "StoryBook",
+    path: SVGStoryBook,
     from: "https://simpleicons.org/",
   },
   {
