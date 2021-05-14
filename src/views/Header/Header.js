@@ -64,6 +64,11 @@ from {
   }
 `;
 
+const firstLoad = keyframes`
+from { transform: translateY(100%) }
+to { transform: translateY(0%) }
+`;
+
 const Wrapper = styled.header`
   position: relative;
   background-color: #171717;
@@ -71,7 +76,6 @@ const Wrapper = styled.header`
   width: 100vw;
   padding: 10px;
   overflow: hidden;
-
   margin: 0 auto;
   height: 100%;
   font-family: "Handlee", sans-serif;
@@ -82,6 +86,8 @@ const Wrapper = styled.header`
   transition: 0.3s ease-in-out;
 
   clip-path: polygon(0 0%, 100% 0, 100% 100%, 0% 100%);
+
+  animation: ${firstLoad} 0.5s ease-in-out;
 
   @media (min-width: 800px) {
     ${({ ticking }) =>

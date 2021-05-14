@@ -143,9 +143,9 @@ function App() {
 
   useEffect(() => {
     window.onload = function () {
-      setPageLoaded(true);
+      // setPageLoaded(true);
       // setTimeout(() => setPageLoaded(true), 0);
-      // setTimeout(() => setPageLoaded(true), 1000);
+      setTimeout(() => setPageLoaded(true), 1000);
     };
   }, []);
 
