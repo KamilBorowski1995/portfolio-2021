@@ -96,6 +96,7 @@ const StyledSvg = styled.img`
 
 const StyledLink = styled.a`
   margin: 0 20px;
+  cursor: none;
   @media (max-width: 800px) {
     margin: 0 10px;
   }
@@ -114,6 +115,15 @@ const StyledSvgLink = styled.img`
 `;
 
 const ProjectElement = ({ name, tech, link, image }) => {
+  const MouseEnter = () => {
+    const mouse = document.querySelector(".cursorBorder");
+    mouse.classList.add("active");
+  };
+  const MouseOut = () => {
+    const mouse = document.querySelector(".cursorBorder");
+    mouse.classList.remove("active");
+  };
+
   return (
     <Wrapper>
       <StyledImageBox>
@@ -134,13 +144,25 @@ const ProjectElement = ({ name, tech, link, image }) => {
           </WrapperSvgLogos>
           <div>
             {link.git && (
-              <StyledLink href={link.git} target="_blank" rel="noreferrer">
+              <StyledLink
+                href={link.git}
+                target="_blank"
+                rel="noreferrer"
+                onMouseEnter={MouseEnter}
+                onMouseOut={MouseOut}
+              >
                 <StyledSvgLink src={SVGGithub} alt="obrazek ze strony" />
               </StyledLink>
             )}
 
             {link.live && (
-              <StyledLink href={link.live} target="_blank" rel="noreferrer">
+              <StyledLink
+                href={link.live}
+                target="_blank"
+                rel="noreferrer"
+                onMouseEnter={MouseEnter}
+                onMouseOut={MouseOut}
+              >
                 <StyledSvgLink src={SVGPlay} alt="obrazek ze strony" />
               </StyledLink>
             )}

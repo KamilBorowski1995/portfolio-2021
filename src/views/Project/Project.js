@@ -64,7 +64,7 @@ const db = [
   },
 ];
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   background-color: #171717;
   padding: 100px;
 
@@ -92,10 +92,6 @@ const StyledTitle = styled(Title)`
 `;
 
 const WrapperElements = styled.div`
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly; */
-
   max-width: 1400px;
   margin: 0 auto;
 

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import styled from "styled-components";
 
+import "./Cursor.css";
+
 const Wrapper = styled.div`
   z-index: 999;
   position: fixed;
@@ -26,7 +28,7 @@ const CursorBorder = styled(CursorCircle)`
   height: 100%;
   background-color: transparent;
   border: 2px solid #dbdbdb;
-  transition: 0.15s;
+  transition: transform 0.15s, border 0.3s ease-in-out;
 `;
 
 const Cursor = () => {
@@ -52,7 +54,7 @@ const Cursor = () => {
   return (
     <Wrapper>
       <CursorCircle style={styleCursor} />
-      <CursorBorder style={styleCursorBorder} />
+      <CursorBorder className="cursorBorder" style={styleCursorBorder} />
     </Wrapper>
   );
 };

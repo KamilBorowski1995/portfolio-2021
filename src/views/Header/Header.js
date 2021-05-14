@@ -42,7 +42,7 @@ const Wrapper = styled.header`
 
   margin: 0 auto;
   height: 100%;
-  font-family: "Handlee";
+  font-family: "Handlee", sans-serif;
 
   letter-spacing: 5px;
   text-transform: uppercase;
@@ -180,6 +180,15 @@ const Header = ({ ticking }) => {
     });
   };
 
+  const MouseEnter = () => {
+    const mouse = document.querySelector(".cursorBorder");
+    mouse.classList.add("active");
+  };
+  const MouseOut = () => {
+    const mouse = document.querySelector(".cursorBorder");
+    mouse.classList.remove("active");
+  };
+
   return (
     <Wrapper id="home" className="App-header" ticking={ticking}>
       <WrapperText>
@@ -193,10 +202,7 @@ const Header = ({ ticking }) => {
         </Title>
         <Paragraph>
           <ParagraphEdit>
-            <LetterMap>Junior </LetterMap>
-          </ParagraphEdit>
-          <ParagraphEdit>
-            <LetterMap>fron-end </LetterMap>
+            <LetterMap>Fron-end </LetterMap>
           </ParagraphEdit>
           <ParagraphEdit>
             <LetterMap>Developer </LetterMap>
@@ -209,7 +215,13 @@ const Header = ({ ticking }) => {
       <StyledCircle size={150} />
       <StyledCircle size={130} />
 
-      <StyledButton href="#projects">Projekty</StyledButton>
+      <StyledButton
+        href="#projects"
+        onMouseEnter={MouseEnter}
+        onMouseOut={MouseOut}
+      >
+        Projekty
+      </StyledButton>
     </Wrapper>
   );
 };

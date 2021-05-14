@@ -31,12 +31,13 @@ const StyledLinkNav = styled.li`
   }
 
   :hover {
-    background-color: #494949;
-    transform: scale(1.1);
+    background-color: #9e9e9e;
+    transform: scale(1.3);
   }
 `;
 
 const StyledLink = styled.a`
+  cursor: none;
   display: block;
   width: 100%;
   height: 100%;
@@ -61,25 +62,54 @@ const Nav = ({ scrollTop }) => {
         setActivePage(arrayElements[i].id);
       }
     }
-  });
+  }, [scrollTop]);
 
   useEffect(() => {
     console.log(activePage);
   }, [activePage]);
 
+  const MouseEnter = () => {
+    const mouse = document.querySelector(".cursorBorder");
+    mouse.classList.add("active");
+  };
+  const MouseOut = () => {
+    const mouse = document.querySelector(".cursorBorder");
+    mouse.classList.remove("active");
+  };
+
   return (
     <Wrapper>
       <ul>
-        <StyledLinkNav name="home" activePage={activePage}>
+        <StyledLinkNav
+          name="home"
+          activePage={activePage}
+          onMouseEnter={MouseEnter}
+          onMouseOut={MouseOut}
+        >
           <StyledLink href="#home"></StyledLink>
         </StyledLinkNav>
-        <StyledLinkNav name="skills" activePage={activePage}>
+        <StyledLinkNav
+          name="skills"
+          activePage={activePage}
+          onMouseEnter={MouseEnter}
+          onMouseOut={MouseOut}
+        >
           <StyledLink href="#skills"></StyledLink>
         </StyledLinkNav>
-        <StyledLinkNav name="projects" activePage={activePage}>
+        <StyledLinkNav
+          name="projects"
+          activePage={activePage}
+          onMouseEnter={MouseEnter}
+          onMouseOut={MouseOut}
+        >
           <StyledLink href="#projects"></StyledLink>
         </StyledLinkNav>
-        <StyledLinkNav name="contact" activePage={activePage}>
+        <StyledLinkNav
+          name="contact"
+          activePage={activePage}
+          onMouseEnter={MouseEnter}
+          onMouseOut={MouseOut}
+        >
           <StyledLink href="#contact"></StyledLink>
         </StyledLinkNav>
       </ul>

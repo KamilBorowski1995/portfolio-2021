@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const StyledTitle = styled.h2`
-  font-family: "Handlee";
+  font-family: "Handlee", sans-serif;
+
   letter-spacing: 5px;
   text-transform: uppercase;
 

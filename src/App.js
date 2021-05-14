@@ -18,6 +18,9 @@ import SVGAJs from "./assets/svg/js.svg";
 import SVGANode from "./assets/svg/nodejs.svg";
 import SVGReact from "./assets/svg/react.svg";
 import SVGMongo from "./assets/svg/mongodb.svg";
+import SVGReactRouter from "./assets/svg/reactrouter.svg";
+import SVGSass from "./assets/svg/sass.svg";
+import SVGSC from "./assets/svg/sc.svg";
 import SVGNest from "./assets/svg/nest.svg";
 import SVGRedux from "./assets/svg/redux.svg";
 import SVGTJ from "./assets/svg/ts.svg";
@@ -41,6 +44,21 @@ const dbSkills = [
   {
     name: "react",
     path: SVGReact,
+    from: "https://simpleicons.org/",
+  },
+  {
+    name: "React-Router",
+    path: SVGReactRouter,
+    from: "https://simpleicons.org/",
+  },
+  {
+    name: "Sass",
+    path: SVGSass,
+    from: "https://simpleicons.org/",
+  },
+  {
+    name: "Styled-Components",
+    path: SVGSC,
     from: "https://simpleicons.org/",
   },
   {
