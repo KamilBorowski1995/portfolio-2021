@@ -3,6 +3,8 @@ import styled, { css } from "styled-components";
 
 import "./App.css";
 
+import Loader from "./components/Loader/Loader";
+
 import Cursor from "./components/Cursor/Cursor";
 import Contact from "./views/Contact/Contact";
 import Nav from "./components/Nav/Nav";
@@ -131,31 +133,47 @@ function App() {
   const [ticking, setTicking] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
 
+  const [pageLoaded, setPageLoaded] = useState(false);
+
   useEffect(() => {
     setTimeout(() => {
       setTicking(false);
     }, 1000);
   }, [ticking]);
 
+  useEffect(() => {
+    window.onload = function () {
+      setPageLoaded(true);
+      // setTimeout(() => setPageLoaded(true), 0);
+      // setTimeout(() => setPageLoaded(true), 1000);
+    };
+  }, []);
+
   return (
     <div className="App">
-      <Cursor />
-      <WrapperScrollSnapping
-        ref={refWrapper}
-        ticking={ticking}
-        onScroll={(e) => {
-          setTicking(true);
-          setScrollTop(e.target.scrollTop);
-        }}
-      >
-        <Header ticking={ticking} />
-        <Skills db={dbSkills}>Skillsy</Skills>
-        <Skills db={dbLearn}>W trakcie nauki</Skills>
-        <Project ticking={ticking} />
-        <Contact />
-      </WrapperScrollSnapping>
+      {pageLoaded ? (
+        <>
+          <Cursor />
+          <WrapperScrollSnapping
+            ref={refWrapper}
+            ticking={ticking}
+            onScroll={(e) => {
+              setTicking(true);
+              setScrollTop(e.target.scrollTop);
+            }}
+          >
+            <Header ticking={ticking} />
+            <Skills db={dbSkills}>Skillsy</Skills>
+            <Skills db={dbLearn}>W trakcie nauki</Skills>
+            <Project ticking={ticking} />
+            <Contact />
+          </WrapperScrollSnapping>
 
-      <Nav scrollTop={scrollTop} />
+          <Nav scrollTop={scrollTop} />
+        </>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 }

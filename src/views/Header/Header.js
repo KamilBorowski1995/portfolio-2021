@@ -2,6 +2,8 @@ import styled, { keyframes, css } from "styled-components";
 
 import Circle from "../../components/Circle/Circle";
 
+import Arrow from "../../assets/svg/arrow.svg";
+
 const rubberBand = keyframes`
 from {
     transform: scale3d(1, 1, 1);
@@ -29,6 +31,36 @@ from {
 
   to {
     transform: scale3d(1, 1, 1);
+  }
+`;
+
+const loadElement = keyframes`
+from {
+    transform: translateY(-10%);
+    opacity: 0
+  }
+20% {
+  opacity: 0
+}
+80% {
+  opacity: 1
+ }
+  to {
+    transform: translateY(0%);
+ 
+  }
+`;
+
+const loadButton = keyframes`
+from {
+    transform: translate(-50% ,-10%);
+    opacity: 0
+  }
+ 
+
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1
   }
 `;
 
@@ -61,11 +93,14 @@ const Wrapper = styled.header`
 `;
 
 const WrapperText = styled.div`
+  z-index: 1;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  animation: ${loadElement} 2s;
 `;
 
 const Title = styled.h1`
@@ -81,6 +116,7 @@ const Title = styled.h1`
   }
 `;
 const TitleEdit = styled.div``;
+
 const ParagraphEdit = styled.div`
   @media (max-width: 800px) {
     margin-bottom: 10px;
@@ -149,7 +185,7 @@ const StyledButton = styled.a`
   border: 1px solid #f5f5f5;
   border-radius: 10px;
   background-color: transparent;
-  padding: 15px 40px;
+  padding: 30px 40px;
   text-transform: uppercase;
   color: #f5f5f5;
   cursor: none;
@@ -165,6 +201,18 @@ const StyledButton = styled.a`
     background-color: #313131;
     border: 1px solid #313131;
   }
+
+  animation-duration: 1s;
+  animation-fill-mode: backwards;
+  animation-delay: 3s;
+  animation-name: ${loadButton};
+`;
+
+const StyledArrow = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const Header = ({ ticking }) => {
@@ -173,10 +221,10 @@ const Header = ({ ticking }) => {
     for (let i = 0; i < children.length; i++) {
       array.push(children[i]);
     }
-    return array.map((el) => {
+    return array.map((el, index) => {
       if (el === " ") {
-        return <LetterWhite>{el}</LetterWhite>;
-      } else return <Letter>{el}</Letter>;
+        return <LetterWhite key={el + index}>{el}</LetterWhite>;
+      } else return <Letter key={el + index}>{el}</Letter>;
     });
   };
 
@@ -216,11 +264,11 @@ const Header = ({ ticking }) => {
       <StyledCircle size={130} />
 
       <StyledButton
-        href="#projects"
+        href="#skills"
         onMouseEnter={MouseEnter}
         onMouseOut={MouseOut}
       >
-        Projekty
+        <StyledArrow src={Arrow} alt="arrow" />
       </StyledButton>
     </Wrapper>
   );

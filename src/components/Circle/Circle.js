@@ -1,6 +1,18 @@
 import { useState, useRef } from "react";
 
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const loadElement = keyframes`
+from {
+    transform: translateY(-10%);
+    opacity: 0
+  }
+  
+   to {
+    transform: translateY(0%);
+    opacity: 1
+  }
+`;
 
 const Wrapper = styled.div`
   position: absolute;
@@ -9,6 +21,11 @@ const Wrapper = styled.div`
   border-radius: 50%;
   background-color: #313131;
   transition: 1s;
+
+  animation-duration: 0.8s;
+  animation-fill-mode: backwards;
+  animation-delay: 2s;
+  animation-name: ${loadElement};
 
   @media (max-width: 800px) {
     width: ${(props) => `${props.size / 15}vw`};

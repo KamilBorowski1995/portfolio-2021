@@ -112,7 +112,7 @@ const Project = ({ ticking }) => {
       <WrapperElements>
         {db.map(({ name, tech, link, image }) => (
           <ProjectElement
-            key={name}
+            key={name + tech}
             name={name}
             tech={tech}
             link={link}

@@ -6,6 +6,10 @@ const Wrapper = styled.section`
   background-color: #f5f5f5;
   padding: 100px;
 
+  :nth-child(3) {
+    padding: 0 100px;
+  }
+
   @media (max-width: 800px) {
     padding: 25px;
   }
@@ -56,8 +60,8 @@ const Skills = ({ children, db }) => {
       <Title>#{children}</Title>
       <WrapperImg>
         {db.map(({ name, path, from }) => (
-          <WrapperElement>
-            <StyledImage key={name} src={path} alt={from} />
+          <WrapperElement key={name}>
+            <StyledImage src={path} alt={from} />
             <Paragraph>{name}</Paragraph>
           </WrapperElement>
         ))}

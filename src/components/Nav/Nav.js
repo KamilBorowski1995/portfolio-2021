@@ -1,5 +1,17 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const loadElement = keyframes`
+from {
+    transform: translateY(-40%);
+    opacity: 0
+  }
+  
+   to {
+    transform: translateY(-50%);
+    opacity: 1
+  }
+`;
 
 const Wrapper = styled.nav`
   position: fixed;
@@ -11,6 +23,11 @@ const Wrapper = styled.nav`
   @media (max-width: 800px) {
     right: 20px;
   }
+
+  animation-duration: 1s;
+  animation-fill-mode: backwards;
+  animation-delay: 1.5s;
+  animation-name: ${loadElement};
 `;
 
 const StyledLinkNav = styled.li`
