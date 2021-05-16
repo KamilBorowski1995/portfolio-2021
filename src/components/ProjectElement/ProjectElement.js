@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import "../../functions/Animated.css";
+
 import SVGAJs from "../../assets/svg/js.svg";
 import SVGANode from "../../assets/svg/nodejs.svg";
 import SVGReact from "../../assets/svg/react.svg";
@@ -22,6 +24,7 @@ const Wrapper = styled.div`
 `;
 
 const StyledImageBox = styled.div`
+  opacity: 0;
   height: 100%;
   overflow: hidden;
   border-radius: 15px;
@@ -126,7 +129,7 @@ const ProjectElement = ({ name, tech, link, image }) => {
 
   return (
     <Wrapper>
-      <StyledImageBox>
+      <StyledImageBox data-anim="fade-up">
         <StyledImage src={image} alt="obrazek ze strony" />
         <WrapperInfo>
           <StyledTitle>{name}</StyledTitle>

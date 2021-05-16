@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
+import Animated from "./functions/Animated";
 
 import "./App.css";
 
@@ -142,6 +143,10 @@ function App() {
   const [pageLoaded, setPageLoaded] = useState(false);
 
   useEffect(() => {
+    Animated(scrollTop);
+  }, [scrollTop]);
+
+  useEffect(() => {
     setTimeout(() => {
       setTicking(false);
     }, 1000);
@@ -171,7 +176,7 @@ function App() {
             }}
           >
             <Header ticking={ticking} />
-            <Skills db={dbSkills} scrollTop={scrollTop}>
+            <Skills db={dbSkills} scrollTop={scrollTop} data-anim="fade-up">
               Skillsy
             </Skills>
             <Skills db={dbLearn} scrollTop={scrollTop}>

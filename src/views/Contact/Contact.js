@@ -5,15 +5,6 @@ import SVG_Github from "../../assets/svg/github.svg";
 import SVG_Linkedin from "../../assets/svg/linkedin.svg";
 import ViewTemplate from "../../templates/ViewTemplate";
 
-const Wrapper = styled.section`
-  background-color: #f5f5f5;
-  padding: 100px;
-
-  @media (max-width: 800px) {
-    padding: 25px;
-  }
-`;
-
 const StyledMailLink = styled.a`
   font-family: "Roboto Condensed", sans-serif;
   display: inline-block;
@@ -65,11 +56,11 @@ const Contact = ({ scrollTop }) => {
       name="Kontakt"
       scrollTop={scrollTop}
     >
-      <Title>#Kontakt</Title>
       <StyledMailLink
         href="mailto:k.borowski@onet.pl"
         onMouseEnter={MouseEnter}
         onMouseOut={MouseOut}
+        data-anim="fade-up"
       >
         k.borowski@onet.pl
       </StyledMailLink>
@@ -80,6 +71,7 @@ const Contact = ({ scrollTop }) => {
           rel="noreferrer"
           onMouseEnter={MouseEnter}
           onMouseOut={MouseOut}
+          data-anim="fade-up"
         >
           <StyledImage src={SVG_Github} alt="Github Logo z SimpleIcons.org." />
         </StyledLink>
@@ -89,6 +81,7 @@ const Contact = ({ scrollTop }) => {
           rel="noreferrer"
           onMouseEnter={MouseEnter}
           onMouseOut={MouseOut}
+          data-anim="fade-up"
         >
           <StyledImage
             src={SVG_Linkedin}

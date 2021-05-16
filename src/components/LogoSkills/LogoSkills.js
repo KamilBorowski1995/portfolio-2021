@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 const WrapperElement = styled.div`
@@ -36,19 +35,8 @@ const Paragraph = styled.p`
 `;
 
 const LogoSkills = ({ name, path, from, scrollTop }) => {
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const offsetTopElement = ref.current.offsetTop;
-
-    if (offsetTopElement - window.innerHeight * 0.75 < scrollTop) {
-      const element = document.getElementById(`${name}`);
-      element.style.animation = `fadeUp 2s both`;
-    }
-  }, [name, scrollTop]);
-
   return (
-    <WrapperElement id={name} key={name} ref={ref}>
+    <WrapperElement id={name} key={name} data-anim="fade-up">
       <StyledScale>
         <StyledImage src={path} alt={from} />
         <Paragraph>{name}</Paragraph>

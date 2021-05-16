@@ -17,17 +17,9 @@ const StyledTitle = styled.h2`
   }
 `;
 
-const Title = ({ children, className, id, functionEl }) => {
-  const ref = useRef(null);
-
-  useEffect(() => {
-    if (functionEl) {
-      functionEl(ref.current);
-    }
-  }, []);
-
+const Title = ({ children, className, id }) => {
   return (
-    <StyledTitle className={className} id={id} ref={ref}>
+    <StyledTitle className={className} id={id} data-anim="fade-up">
       {children}
     </StyledTitle>
   );

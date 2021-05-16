@@ -66,10 +66,8 @@ const db = [
 ];
 
 const Wrapper = styled.section`
-  opacity: 0;
   background-color: #171717;
   padding: 100px;
-  transform: scale(0);
 
   color: #f5f5f5;
 
@@ -102,33 +100,30 @@ const Project = ({ scrollTop }) => {
   const [refTitle, setRefTitle] = useState(null);
   const ref = useRef(null);
 
-  useEffect(() => {
-    const offsetTopElement = ref.current.offsetTop;
+  // useEffect(() => {
+  //   const offsetTopElement = ref.current.offsetTop;
 
-    if (offsetTopElement - window.innerHeight * 0.75 < scrollTop) {
-      const element = document.getElementById("projects");
-      element.style.animation = `fadeOpacity 1s both`;
-    }
+  //   if (offsetTopElement - window.innerHeight * 0.75 < scrollTop) {
+  //     const element = document.getElementById("projects");
+  //     element.style.animation = `fadeOpacity 1s both`;
+  //   }
 
-    if (refTitle) {
-      const offsetTopElementTitle = refTitle.offsetTop;
-      if (offsetTopElementTitle - window.innerHeight * 0.75 < scrollTop) {
-        const elementTitle = document.getElementById("projectsTitle");
-        elementTitle.style.animation = `fadeUp 1s both`;
-      }
-    }
-  }, [refTitle, scrollTop]);
+  //   if (refTitle) {
+  //     const offsetTopElementTitle = refTitle.offsetTop;
+  //     if (offsetTopElementTitle - window.innerHeight * 0.75 < scrollTop) {
+  //       const elementTitle = document.getElementById("projectsTitle");
+  //       elementTitle.style.animation = `fadeUp 1s both`;
+  //     }
+  //   }
+  // }, [refTitle, scrollTop]);
 
   const showEl = (refTitle) => {
     setRefTitle(refTitle);
-    console.log(refTitle);
   };
 
   return (
     <Wrapper id="projects" ref={ref}>
-      <StyledTitle id="projectsTitle" functionEl={showEl}>
-        #Projekty
-      </StyledTitle>
+      <StyledTitle id="projectsTitle">#Projekty</StyledTitle>
       <WrapperElements>
         {db.map(({ name, tech, link, image }) => (
           <ProjectElement
