@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import Title from "../../components/Title/Title";
 import SVG_Github from "../../assets/svg/github.svg";
 import SVG_Linkedin from "../../assets/svg/linkedin.svg";
 import ViewTemplate from "../../templates/ViewTemplate";

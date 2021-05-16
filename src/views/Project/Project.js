@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import ProjectElement from "../../components/ProjectElement/ProjectElement";
 
@@ -97,32 +96,8 @@ const WrapperElements = styled.div`
 `;
 
 const Project = ({ scrollTop }) => {
-  const [refTitle, setRefTitle] = useState(null);
-  const ref = useRef(null);
-
-  // useEffect(() => {
-  //   const offsetTopElement = ref.current.offsetTop;
-
-  //   if (offsetTopElement - window.innerHeight * 0.75 < scrollTop) {
-  //     const element = document.getElementById("projects");
-  //     element.style.animation = `fadeOpacity 1s both`;
-  //   }
-
-  //   if (refTitle) {
-  //     const offsetTopElementTitle = refTitle.offsetTop;
-  //     if (offsetTopElementTitle - window.innerHeight * 0.75 < scrollTop) {
-  //       const elementTitle = document.getElementById("projectsTitle");
-  //       elementTitle.style.animation = `fadeUp 1s both`;
-  //     }
-  //   }
-  // }, [refTitle, scrollTop]);
-
-  const showEl = (refTitle) => {
-    setRefTitle(refTitle);
-  };
-
   return (
-    <Wrapper id="projects" ref={ref}>
+    <Wrapper id="projects">
       <StyledTitle id="projectsTitle">#Projekty</StyledTitle>
       <WrapperElements>
         {db.map(({ name, tech, link, image }) => (
