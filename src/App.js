@@ -176,10 +176,15 @@ function App() {
             }}
           >
             <Header ticking={ticking} />
-            <Skills db={dbSkills} scrollTop={scrollTop} data-anim="fade-up">
+            <Skills
+              db={dbSkills}
+              scrollTop={scrollTop}
+              data-anim="fade-up"
+              id="skills"
+            >
               Skillsy
             </Skills>
-            <Skills db={dbLearn} scrollTop={scrollTop}>
+            <Skills db={dbLearn} scrollTop={scrollTop} id="learn">
               W trakcie nauki
             </Skills>
             <Project scrollTop={scrollTop} />

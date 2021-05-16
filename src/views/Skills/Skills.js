@@ -13,14 +13,9 @@ const WrapperImg = styled.div`
   flex-wrap: wrap;
 `;
 
-const Skills = ({ children, db, scrollTop }) => {
+const Skills = ({ children, db, scrollTop, id }) => {
   return (
-    <ViewTemplate
-      id="skills"
-      theme="light"
-      name={children}
-      scrollTop={scrollTop}
-    >
+    <ViewTemplate id={id} theme="light" name={children} scrollTop={scrollTop}>
       <WrapperImg>
         {db.map(({ name, path, from }) => (
           <LogoSkills
