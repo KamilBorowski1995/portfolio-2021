@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Title from "../../components/Title/Title";
 import SVG_Github from "../../assets/svg/github.svg";
 import SVG_Linkedin from "../../assets/svg/linkedin.svg";
+import ViewTemplate from "../../templates/ViewTemplate";
 
 const Wrapper = styled.section`
   background-color: #f5f5f5;
@@ -47,7 +48,7 @@ const StyledImage = styled.img`
   }
 `;
 
-const Contact = () => {
+const Contact = ({ scrollTop }) => {
   const MouseEnter = () => {
     const mouse = document.querySelector(".cursorBorder");
     mouse.classList.add("active");
@@ -58,7 +59,12 @@ const Contact = () => {
   };
 
   return (
-    <Wrapper id="contact">
+    <ViewTemplate
+      id="contact"
+      theme="light"
+      name="Kontakt"
+      scrollTop={scrollTop}
+    >
       <Title>#Kontakt</Title>
       <StyledMailLink
         href="mailto:k.borowski@onet.pl"
@@ -67,7 +73,6 @@ const Contact = () => {
       >
         k.borowski@onet.pl
       </StyledMailLink>
-
       <div>
         <StyledLink
           href="https://github.com/KamilBorowski1995"
@@ -91,7 +96,7 @@ const Contact = () => {
           />
         </StyledLink>
       </div>
-    </Wrapper>
+    </ViewTemplate>
   );
 };
 

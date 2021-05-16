@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+
 import styled from "styled-components";
 
 const StyledTitle = styled.h2`
@@ -15,9 +17,17 @@ const StyledTitle = styled.h2`
   }
 `;
 
-const Title = ({ children, className, id }) => {
+const Title = ({ children, className, id, functionEl }) => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (functionEl) {
+      functionEl(ref.current);
+    }
+  }, []);
+
   return (
-    <StyledTitle className={className} id={id}>
+    <StyledTitle className={className} id={id} ref={ref}>
       {children}
     </StyledTitle>
   );

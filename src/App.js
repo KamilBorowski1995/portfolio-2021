@@ -177,7 +177,7 @@ function App() {
             <Skills db={dbLearn} scrollTop={scrollTop}>
               W trakcie nauki
             </Skills>
-            <Project ticking={ticking} scrollTop={scrollTop} />
+            <Project scrollTop={scrollTop} />
             <Contact scrollTop={scrollTop} />
           </WrapperScrollSnapping>
 

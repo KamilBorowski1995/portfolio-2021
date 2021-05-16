@@ -81,10 +81,6 @@ const Nav = ({ scrollTop }) => {
     }
   }, [scrollTop]);
 
-  useEffect(() => {
-    console.log(activePage);
-  }, [activePage]);
-
   const MouseEnter = () => {
     const mouse = document.querySelector(".cursorBorder");
     mouse.classList.add("active");
