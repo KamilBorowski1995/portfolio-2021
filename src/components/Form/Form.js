@@ -106,7 +106,7 @@ const Form = () => {
           }, 10000);
         });
     } else {
-      console.log("Uzupełnij wszystkie pola formularza");
+      setSendmessage("Uzupełnij wszystkie pola formularza");
       setLoaded(false);
     }
   };
