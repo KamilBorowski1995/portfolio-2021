@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 
 import SVG_Github from "../../assets/svg/github.svg";
@@ -6,7 +5,6 @@ import SVG_Linkedin from "../../assets/svg/linkedin.svg";
 
 import Form from "../../components/Form/Form";
 import ViewTemplate from "../../templates/ViewTemplate";
-import Loader from "../../components/Loader/Loader";
 
 const StyledMailLink = styled.a`
   font-family: "Roboto Condensed", sans-serif;
@@ -43,8 +41,6 @@ const StyledImage = styled.img`
 `;
 
 const Contact = ({ scrollTop }) => {
-  const [loaded, setLoaded] = useState(false);
-
   const MouseEnter = () => {
     const mouse = document.querySelector(".cursorBorder");
     mouse.classList.add("active");
@@ -61,8 +57,7 @@ const Contact = ({ scrollTop }) => {
       name="Kontakt"
       scrollTop={scrollTop}
     >
-      {loaded ? <Loader /> : <Form setLoaded={setLoaded} />}
-
+      <Form />
       <StyledMailLink
         href="mailto:k.borowski@onet.pl"
         onMouseEnter={MouseEnter}

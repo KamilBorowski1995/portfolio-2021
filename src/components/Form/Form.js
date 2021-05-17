@@ -4,6 +4,7 @@ import axios from "axios";
 
 import Input from "../Input/Input";
 import TextArea from "../TextArea/TextArea";
+import Loader from "../Loader/Loader";
 
 const Wrapper = styled.div`
   max-width: 640px;
@@ -57,11 +58,13 @@ const StyledButton = styled.button`
   }
 `;
 
-const Form = ({ setLoaded }) => {
+const Form = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [sendmessage, setSendmessage] = useState("");
+
+  const [loaded, setLoaded] = useState(false);
 
   const MouseEnter = () => {
     const mouse = document.querySelector(".cursorBorder");
@@ -109,44 +112,50 @@ const Form = ({ setLoaded }) => {
 
   return (
     <Wrapper data-anim="fade-up">
-      <Input
-        name="name"
-        onMouseEnter={MouseEnter}
-        onMouseOut={MouseOut}
-        set={setName}
-        value={name}
-      >
-        Wpisz swoje imię
-      </Input>
-      <Input
-        name="email"
-        onMouseEnter={MouseEnter}
-        onMouseOut={MouseOut}
-        set={setEmail}
-        value={email}
-      >
-        Wpisz swój email
-      </Input>
-      <TextArea
-        name="message"
-        onMouseEnter={MouseEnter}
-        onMouseOut={MouseOut}
-        set={setMessage}
-        value={message}
-      >
-        Wiadomość:
-      </TextArea>
-      <StyledSendMessage sendmessage={sendmessage}>
-        {sendmessage}
-      </StyledSendMessage>
-      <StyledButton
-        onMouseEnter={MouseEnter}
-        onMouseOut={MouseOut}
-        onClick={sendEmail}
-        disabled={false}
-      >
-        Wyślij
-      </StyledButton>
+      {loaded ? (
+        <Loader />
+      ) : (
+        <>
+          <Input
+            name="name"
+            onMouseEnter={MouseEnter}
+            onMouseOut={MouseOut}
+            set={setName}
+            value={name}
+          >
+            Wpisz swoje imię
+          </Input>
+          <Input
+            name="email"
+            onMouseEnter={MouseEnter}
+            onMouseOut={MouseOut}
+            set={setEmail}
+            value={email}
+          >
+            Wpisz swój email
+          </Input>
+          <TextArea
+            name="message"
+            onMouseEnter={MouseEnter}
+            onMouseOut={MouseOut}
+            set={setMessage}
+            value={message}
+          >
+            Wiadomość:
+          </TextArea>
+          <StyledSendMessage sendmessage={sendmessage}>
+            {sendmessage}
+          </StyledSendMessage>
+          <StyledButton
+            onMouseEnter={MouseEnter}
+            onMouseOut={MouseOut}
+            onClick={sendEmail}
+            disabled={false}
+          >
+            Wyślij
+          </StyledButton>
+        </>
+      )}
     </Wrapper>
   );
 };
