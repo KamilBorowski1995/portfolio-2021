@@ -1,5 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
+import axios from "axios";
+
 import Animated from "./functions/Animated";
 
 import "./App.css";
@@ -141,6 +143,14 @@ function App() {
   const [scrollTop, setScrollTop] = useState(0);
 
   const [pageLoaded, setPageLoaded] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get("https://kamilborowskiportfolio.herokuapp.com/contact")
+      .then(function (response) {})
+      .catch(function (error) {})
+      .then(function () {});
+  }, []);
 
   useEffect(() => {
     Animated(scrollTop);

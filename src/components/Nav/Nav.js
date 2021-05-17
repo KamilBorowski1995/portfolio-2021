@@ -72,11 +72,16 @@ const Nav = ({ scrollTop }) => {
     const arrayElements = [home, skills, projects, contact];
 
     for (let i = 0; i < arrayElements.length; i++) {
-      if (
-        scrollTop >= arrayElements[i].offsetTop &&
-        scrollTop < arrayElements[i + 1].offsetTop
-      ) {
-        setActivePage(arrayElements[i].id);
+      if (arrayElements[i + 1]) {
+        if (
+          scrollTop >= arrayElements[i].offsetTop &&
+          scrollTop < arrayElements[i + 1].offsetTop
+        ) {
+          setActivePage(arrayElements[i].id);
+        }
+        if (scrollTop >= arrayElements[arrayElements.length - 1].offsetTop) {
+          setActivePage(arrayElements[3].id);
+        }
       }
     }
   }, [scrollTop]);

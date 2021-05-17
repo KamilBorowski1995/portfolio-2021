@@ -95,9 +95,9 @@ const WrapperElements = styled.div`
   }
 `;
 
-const Project = ({ scrollTop }) => {
+const Project = () => {
   return (
-    <Wrapper id="projects" data-anim="fade-up">
+    <Wrapper id="projects" data-anim="fade-opacity">
       <StyledTitle id="projectsTitle">#Projekty</StyledTitle>
       <WrapperElements>
         {db.map(({ name, tech, link, image }) => (
