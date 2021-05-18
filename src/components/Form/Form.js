@@ -32,7 +32,7 @@ const StyledSendMessage = styled.p`
 `;
 
 const StyledButton = styled.button`
-  width: 200px;
+  width: calc(100% - 20px);
   grid-area: button;
 
   margin: 20px 10px 0 auto;
