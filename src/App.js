@@ -10,8 +10,8 @@ import Cursor from "./components/Cursor/Cursor";
 import Home from "./pages/Home.js";
 
 function App() {
-  const location = useLocation();
-  console.log(location);
+  // const location = useLocation();
+  // console.log(location);
 
   useEffect(() => {
     axios
@@ -23,16 +23,17 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Cursor />
-        <TransitionGroup>
+      {/* <BrowserRouter> */}
+      <Cursor />
+      <Home />
+      {/* <TransitionGroup>
           <CSSTransition key={location.key} classNames="slide" timeout={2000}>
             <Switch location={location}>
               <Route exact path="/" component={Home} />
             </Switch>
           </CSSTransition>
         </TransitionGroup>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   );
 }
