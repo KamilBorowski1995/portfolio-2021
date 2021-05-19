@@ -105,7 +105,7 @@ const Nav = ({ scrollTop }) => {
           onMouseEnter={MouseEnter}
           onMouseOut={MouseOut}
         >
-          <StyledLink to="/portfolio-2021/#home"></StyledLink>
+          <StyledLink to="/#home"></StyledLink>
         </StyledLinkNav>
         <StyledLinkNav
           name="skills"
@@ -113,7 +113,7 @@ const Nav = ({ scrollTop }) => {
           onMouseEnter={MouseEnter}
           onMouseOut={MouseOut}
         >
-          <StyledLink to="/portfolio-2021/#skills"></StyledLink>
+          <StyledLink to="/#skills"></StyledLink>
         </StyledLinkNav>
         <StyledLinkNav
           name="projects"
@@ -121,7 +121,7 @@ const Nav = ({ scrollTop }) => {
           onMouseEnter={MouseEnter}
           onMouseOut={MouseOut}
         >
-          <StyledLink to="/portfolio-2021/#projects"></StyledLink>
+          <StyledLink to="/#projects"></StyledLink>
         </StyledLinkNav>
         <StyledLinkNav
           name="contact"

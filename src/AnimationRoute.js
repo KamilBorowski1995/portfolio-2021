@@ -20,9 +20,9 @@ const AnimationRoute = () => {
         >
           <Switch location={location}>
             <Route exact path="/portfolio-2021/" component={Home} />
-            <Route exact path="*" component={Home} />
             <Route exact path="/portfolio-2021/courses" component={Courses} />
             <Route exact path="/portfolio-2021/about" component={About} />
+            <Route path="*" component={Home} />
           </Switch>
         </CSSTransition>
       </TransitionGroup>
