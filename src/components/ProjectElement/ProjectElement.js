@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Link } from "react-router-dom";
+
 import "../../functions/Animated.css";
 
 import SVGAJs from "../../assets/svg/js.svg";
@@ -158,7 +160,7 @@ const ProjectElement = ({ name, tech, link, image }) => {
           <div>
             {link.git && (
               <StyledLink
-                to={link.git}
+                href={link.git}
                 target="_blank"
                 rel="noreferrer"
                 onMouseEnter={MouseEnter}
@@ -170,7 +172,7 @@ const ProjectElement = ({ name, tech, link, image }) => {
 
             {link.live && (
               <StyledLink
-                to={link.live}
+                href={link.live}
                 target="_blank"
                 rel="noreferrer"
                 onMouseEnter={MouseEnter}
