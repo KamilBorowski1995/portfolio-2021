@@ -115,7 +115,7 @@ const NavPages = () => {
       <WrapperPopup openNav={openNav}>
         <StyledNav>
           <StyledLink
-            to="/"
+            to="/portfolio-2021/"
             onClick={() => setOpenNav(false)}
             onMouseEnter={MouseEnter}
             onMouseOut={MouseOut}
@@ -123,7 +123,7 @@ const NavPages = () => {
             home
           </StyledLink>
           <StyledLink
-            to="/courses"
+            to="/portfolio-2021/courses"
             onClick={() => setOpenNav(false)}
             onMouseEnter={MouseEnter}
             onMouseOut={MouseOut}
@@ -131,7 +131,7 @@ const NavPages = () => {
             kursy
           </StyledLink>
           <StyledLink
-            to="/about"
+            to="/portfolio-2021/about"
             onClick={() => setOpenNav(false)}
             onMouseEnter={MouseEnter}
             onMouseOut={MouseOut}

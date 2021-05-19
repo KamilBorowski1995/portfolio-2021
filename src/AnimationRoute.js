@@ -19,10 +19,10 @@ const AnimationRoute = () => {
           timeout={2000}
         >
           <Switch location={location}>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/portfolio-2021/" component={Home} />
             <Route exact path="*" component={Home} />
-            <Route exact path="/courses" component={Courses} />
-            <Route exact path="/about" component={About} />
+            <Route exact path="/portfolio-2021/courses" component={Courses} />
+            <Route exact path="/portfolio-2021/about" component={About} />
           </Switch>
         </CSSTransition>
       </TransitionGroup>
