@@ -20,6 +20,7 @@ const AnimationRoute = () => {
         >
           <Switch location={location}>
             <Route exact path="/" component={Home} />
+            <Route exact path="*" component={Home} />
             <Route exact path="/courses" component={Courses} />
             <Route exact path="/about" component={About} />
           </Switch>
