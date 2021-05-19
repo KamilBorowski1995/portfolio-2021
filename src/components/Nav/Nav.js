@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
+import { HashLink as Link } from "react-router-hash-link";
 
 const loadElement = keyframes`
 from {
@@ -14,7 +15,7 @@ from {
 `;
 
 const Wrapper = styled.nav`
-  position: fixed;
+  position: absolute;
   top: 50%;
   right: 50px;
 
@@ -53,7 +54,7 @@ const StyledLinkNav = styled.li`
   }
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   cursor: none;
   display: block;
   width: 100%;
@@ -104,7 +105,7 @@ const Nav = ({ scrollTop }) => {
           onMouseEnter={MouseEnter}
           onMouseOut={MouseOut}
         >
-          <StyledLink href="#home"></StyledLink>
+          <StyledLink to="/#home"></StyledLink>
         </StyledLinkNav>
         <StyledLinkNav
           name="skills"
@@ -112,7 +113,7 @@ const Nav = ({ scrollTop }) => {
           onMouseEnter={MouseEnter}
           onMouseOut={MouseOut}
         >
-          <StyledLink href="#skills"></StyledLink>
+          <StyledLink to="/#skills"></StyledLink>
         </StyledLinkNav>
         <StyledLinkNav
           name="projects"
@@ -120,7 +121,7 @@ const Nav = ({ scrollTop }) => {
           onMouseEnter={MouseEnter}
           onMouseOut={MouseOut}
         >
-          <StyledLink href="#projects"></StyledLink>
+          <StyledLink to="/#projects"></StyledLink>
         </StyledLinkNav>
         <StyledLinkNav
           name="contact"
@@ -128,7 +129,7 @@ const Nav = ({ scrollTop }) => {
           onMouseEnter={MouseEnter}
           onMouseOut={MouseOut}
         >
-          <StyledLink href="#contact"></StyledLink>
+          <StyledLink to="#contact"></StyledLink>
         </StyledLinkNav>
       </ul>
     </Wrapper>

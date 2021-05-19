@@ -19,6 +19,7 @@ const Skills = ({ children, db, scrollTop, id }) => {
       <WrapperImg>
         {db.map(({ name, path, from }) => (
           <LogoSkills
+            key={name}
             name={name}
             path={path}
             from={from}

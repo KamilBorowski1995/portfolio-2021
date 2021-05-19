@@ -11,104 +11,7 @@ import Header from "../views/Header/Header";
 import Project from "../views/Project/Project";
 import Skills from "../views/Skills/Skills";
 
-import SVGAdobe from "../assets/svg/adobexd.svg";
-import SVGCss3 from "../assets/svg/css3.svg";
-import SVGGithub from "../assets/svg/github.svg";
-import SVGAHTML5 from "../assets/svg/html5.svg";
-import SVGAJs from "../assets/svg/js.svg";
-import SVGANode from "../assets/svg/nodejs.svg";
-import SVGReact from "../assets/svg/react.svg";
-import SVGMongo from "../assets/svg/mongodb.svg";
-import SVGReactRouter from "../assets/svg/reactrouter.svg";
-import SVGSass from "../assets/svg/sass.svg";
-import SVGStoryBook from "../assets/svg/storybook.svg";
-import SVGSC from "../assets/svg/sc.svg";
-import SVGNest from "../assets/svg/nest.svg";
-import SVGRedux from "../assets/svg/redux.svg";
-import SVGTJ from "../assets/svg/ts.svg";
-
-const dbSkills = [
-  {
-    name: "html5",
-    path: SVGAHTML5,
-    from: "https://simpleicons.org/",
-  },
-  {
-    name: "css3",
-    path: SVGCss3,
-    from: "https://simpleicons.org/",
-  },
-  {
-    name: "javascript",
-    path: SVGAJs,
-    from: "https://fontawesome.com/",
-  },
-  {
-    name: "react",
-    path: SVGReact,
-    from: "https://simpleicons.org/",
-  },
-  {
-    name: "React-Router",
-    path: SVGReactRouter,
-    from: "https://simpleicons.org/",
-  },
-  {
-    name: "Sass",
-    path: SVGSass,
-    from: "https://simpleicons.org/",
-  },
-  {
-    name: "Styled-Components",
-    path: SVGSC,
-    from: "https://simpleicons.org/",
-  },
-  {
-    name: "StoryBook",
-    path: SVGStoryBook,
-    from: "https://simpleicons.org/",
-  },
-  {
-    name: "node",
-    path: SVGANode,
-    from: "https://fontawesome.com/",
-  },
-
-  {
-    name: "mongodb",
-    path: SVGMongo,
-    from: "https://simpleicons.org/",
-  },
-  {
-    name: "github",
-    path: SVGGithub,
-    from: "https://simpleicons.org/",
-  },
-
-  {
-    name: "adobexd",
-    path: SVGAdobe,
-    from: "https://simpleicons.org/",
-  },
-];
-
-const dbLearn = [
-  {
-    name: "Nest.js",
-    path: SVGNest,
-    from: "https://seeklogo.com",
-  },
-  {
-    name: "Redux",
-    path: SVGRedux,
-    from: "https://simpleicons.org/",
-  },
-  {
-    name: "TypeScript",
-    path: SVGTJ,
-    from: "https://fontawesome.com/",
-  },
-];
+import { skillsList, learnSkillsList } from "../dataBase/dataBase";
 
 const WrapperScrollSnapping = styled.div`
   height: 100vh;
@@ -161,7 +64,7 @@ const Home = () => {
   return (
     <>
       {pageLoaded ? (
-        <>
+        <div style={{ backgroundColor: "#f5f5f5" }}>
           <WrapperScrollSnapping
             ticking={ticking}
             onScroll={(e) => {
@@ -171,22 +74,21 @@ const Home = () => {
           >
             <Header ticking={ticking} />
             <Skills
-              db={dbSkills}
+              db={skillsList}
               scrollTop={scrollTop}
               data-anim="fade-up"
               id="skills"
             >
               Skillsy
             </Skills>
-            <Skills db={dbLearn} scrollTop={scrollTop} id="learn">
+            <Skills db={learnSkillsList} scrollTop={scrollTop} id="learn">
               W trakcie nauki
             </Skills>
             <Project scrollTop={scrollTop} />
             <Contact scrollTop={scrollTop} />
           </WrapperScrollSnapping>
-
           <Nav scrollTop={scrollTop} />
-        </>
+        </div>
       ) : (
         <Loader />
       )}

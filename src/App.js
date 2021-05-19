@@ -1,18 +1,16 @@
 import { useEffect } from "react";
-import { BrowserRouter, Switch, Route, useLocation } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import axios from "axios";
 
 import "./App.css";
 
 import Cursor from "./components/Cursor/Cursor";
-import Home from "./pages/Home.js";
+
+import AnimationRoute from "./AnimationRoute";
+import NavPages from "./components/NavPages/NavPages";
 
 function App() {
-  // const location = useLocation();
-  // console.log(location);
-
   useEffect(() => {
     axios
       .get("https://kamilborowskiportfolio.herokuapp.com/contact")
@@ -23,17 +21,11 @@ function App() {
 
   return (
     <div className="App">
-      {/* <BrowserRouter> */}
-      <Cursor />
-      <Home />
-      {/* <TransitionGroup>
-          <CSSTransition key={location.key} classNames="slide" timeout={2000}>
-            <Switch location={location}>
-              <Route exact path="/" component={Home} />
-            </Switch>
-          </CSSTransition>
-        </TransitionGroup>
-      </BrowserRouter> */}
+      <Router>
+        <Cursor />
+        <NavPages />
+        <AnimationRoute />
+      </Router>
     </div>
   );
 }

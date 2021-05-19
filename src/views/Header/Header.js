@@ -1,7 +1,7 @@
 import styled, { keyframes, css } from "styled-components";
+import { HashLink as Link } from "react-router-hash-link";
 
 import Circle from "../../components/Circle/Circle";
-
 import Arrow from "../../assets/svg/arrow.svg";
 
 const rubberBand = keyframes`
@@ -124,12 +124,13 @@ const WrapperText = styled.div`
   animation: ${loadElement} 2s;
 `;
 
-const Title = styled.h1`
+const Title = styled.div`
   font-size: 80px;
   margin-bottom: 15px;
   z-index: 1;
   display: flex;
   justify-content: center;
+  font-weight: bold;
 
   @media (max-width: 800px) {
     font-size: 50px;
@@ -161,7 +162,7 @@ const LetterWhite = styled(Letter)`
   width: 15px;
 `;
 
-const Paragraph = styled.p`
+const Paragraph = styled.div`
   font-size: 35px;
   z-index: 1;
   display: flex;
@@ -198,7 +199,7 @@ const StyledCircle = styled(Circle)`
   }
 `;
 
-const StyledButton = styled.a`
+const StyledButton = styled(Link)`
   position: absolute;
   transform: translateX(-50%);
   bottom: 100px;
@@ -271,6 +272,7 @@ const Header = ({ ticking }) => {
   return (
     <Wrapper id="home" className="App-header" ticking={ticking}>
       <WrapperText>
+        <h1 style={{ display: "none" }}>Kamil Boowski - Front-end Developer</h1>
         <Title>
           <TitleEdit>
             <LetterMap>Kamil </LetterMap>
@@ -295,7 +297,7 @@ const Header = ({ ticking }) => {
       <StyledCircle size={130} />
 
       <StyledButton
-        href="#skills"
+        to="#skills"
         onMouseEnter={MouseEnter}
         onMouseOut={MouseOut}
       >

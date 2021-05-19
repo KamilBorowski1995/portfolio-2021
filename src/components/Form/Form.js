@@ -24,7 +24,7 @@ const StyledSendMessage = styled.p`
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   font-weight: 400;
-  color: #171717;
+  color: ${({ theme }) => (theme === "light" ? "#f1f1f1" : "#818181")};
 
   transition: 0.3s ease-in-out;
 
@@ -58,7 +58,7 @@ const StyledButton = styled.button`
   }
 `;
 
-const Form = () => {
+const Form = ({ className, theme }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -78,7 +78,6 @@ const Form = () => {
   const sendEmail = () => {
     setLoaded(true);
     if (name !== "" && email !== "" && message !== "") {
-      console.log("idziemy w axiosa");
       axios
         .post("https://kamilborowskiportfolio.herokuapp.com/contact", {
           name,
@@ -112,12 +111,13 @@ const Form = () => {
   };
 
   return (
-    <Wrapper data-anim="fade-up">
+    <Wrapper data-anim="fade-opacity-long" className={className}>
       {loaded ? (
         <Loader />
       ) : (
         <>
           <Input
+            theme={theme}
             name="name"
             onMouseEnter={MouseEnter}
             onMouseOut={MouseOut}
@@ -127,6 +127,7 @@ const Form = () => {
             Wpisz swoje imię
           </Input>
           <Input
+            theme={theme}
             name="email"
             onMouseEnter={MouseEnter}
             onMouseOut={MouseOut}
@@ -136,6 +137,7 @@ const Form = () => {
             Wpisz swój email
           </Input>
           <TextArea
+            theme={theme}
             name="message"
             onMouseEnter={MouseEnter}
             onMouseOut={MouseOut}
@@ -144,10 +146,11 @@ const Form = () => {
           >
             Wiadomość:
           </TextArea>
-          <StyledSendMessage sendmessage={sendmessage}>
+          <StyledSendMessage theme={theme} sendmessage={sendmessage}>
             {sendmessage}
           </StyledSendMessage>
           <StyledButton
+            theme={theme}
             onMouseEnter={MouseEnter}
             onMouseOut={MouseOut}
             onClick={sendEmail}

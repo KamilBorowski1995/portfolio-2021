@@ -136,11 +136,21 @@ const ProjectElement = ({ name, tech, link, image }) => {
           <WrapperSvgLogos>
             {tech.map((el) => {
               if (el === "react")
-                return <StyledSvg src={SVGReact} alt="logo react" />;
+                return (
+                  <StyledSvg key="logoReact" src={SVGReact} alt="logo react" />
+                );
               if (el === "node")
-                return <StyledSvg src={SVGANode} alt="logo node.js" />;
+                return (
+                  <StyledSvg key="logoNode" src={SVGANode} alt="logo node.js" />
+                );
               if (el === "mongodb")
-                return <StyledSvg src={SVGMongo} alt="logo mongodb" />;
+                return (
+                  <StyledSvg
+                    key="logoMongoDb"
+                    src={SVGMongo}
+                    alt="logo mongodb"
+                  />
+                );
               if (el === "js") return <StyledSvg src={SVGAJs} alt="logo js" />;
               else return null;
             })}
@@ -148,7 +158,7 @@ const ProjectElement = ({ name, tech, link, image }) => {
           <div>
             {link.git && (
               <StyledLink
-                href={link.git}
+                to={link.git}
                 target="_blank"
                 rel="noreferrer"
                 onMouseEnter={MouseEnter}
@@ -160,7 +170,7 @@ const ProjectElement = ({ name, tech, link, image }) => {
 
             {link.live && (
               <StyledLink
-                href={link.live}
+                to={link.live}
                 target="_blank"
                 rel="noreferrer"
                 onMouseEnter={MouseEnter}

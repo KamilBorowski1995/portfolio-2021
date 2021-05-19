@@ -16,7 +16,7 @@ const StyledLabel = styled.label`
 
   font-size: 20px;
   font-family: "Roboto", sans-serif;
-  color: #373738;
+  color: ${({ theme }) => (theme === "light" ? "#ffffff" : "#373738")};
   cursor: none;
 `;
 
@@ -31,7 +31,7 @@ const StyledInput = styled.input`
   background-color: transparent;
   font-size: 20px;
   font-family: "Roboto", sans-serif;
-  color: #373738;
+  color: ${({ theme }) => (theme === "light" ? "#ffffff" : "#373738")};
 
   cursor: none;
 
@@ -49,13 +49,23 @@ const StyledInput = styled.input`
 const StyledBar = styled.div`
   width: 100%;
   height: 2px;
-  background-color: #818181;
+  background-color: ${({ theme }) =>
+    theme === "light" ? "#f1f1f1" : "#818181"};
 `;
 
-const Input = ({ children, name, onMouseEnter, onMouseOut, set, value }) => {
+const Input = ({
+  children,
+  name,
+  onMouseEnter,
+  onMouseOut,
+  set,
+  value,
+  theme,
+}) => {
   return (
     <Wrapper name={name}>
       <StyledInput
+        theme={theme}
         type="text"
         id={name}
         placeholder=" "
@@ -65,13 +75,14 @@ const Input = ({ children, name, onMouseEnter, onMouseOut, set, value }) => {
         onMouseOut={onMouseOut}
       />
       <StyledLabel
+        theme={theme}
         htmlFor={name}
         onMouseEnter={onMouseEnter}
         onMouseOut={onMouseOut}
       >
         {children}
       </StyledLabel>
-      <StyledBar></StyledBar>
+      <StyledBar theme={theme}></StyledBar>
     </Wrapper>
   );
 };
