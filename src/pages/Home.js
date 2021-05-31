@@ -12,6 +12,7 @@ import Project from "../views/Project/Project";
 import Skills from "../views/Skills/Skills";
 
 import { skillsList, learnSkillsList } from "../dataBase/dataBase";
+import SmoothScroll from "../functions/SmoothScroll/SmoothScroll";
 
 const WrapperScrollSnapping = styled.div`
   height: 100vh;
@@ -61,17 +62,18 @@ const Home = () => {
     }
   }, []);
 
+  const handleScroll = (e) => {
+    setTicking(true);
+    setScrollTop(e.target.scrollTop);
+
+    // SmoothScroll(e);
+  };
+
   return (
     <>
       {pageLoaded ? (
         <div style={{ backgroundColor: "#f5f5f5" }}>
-          <WrapperScrollSnapping
-            ticking={ticking}
-            onScroll={(e) => {
-              setTicking(true);
-              setScrollTop(e.target.scrollTop);
-            }}
-          >
+          <WrapperScrollSnapping ticking={ticking} onScroll={handleScroll}>
             <Header ticking={ticking} />
             <Skills
               db={skillsList}

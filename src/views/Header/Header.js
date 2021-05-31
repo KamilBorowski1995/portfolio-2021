@@ -272,7 +272,9 @@ const Header = ({ ticking }) => {
   return (
     <Wrapper id="home" className="App-header" ticking={ticking}>
       <WrapperText>
-        <h1 style={{ display: "none" }}>Kamil Boowski - Front-end Developer</h1>
+        <h1 style={{ display: "none" }}>
+          Kamil Borowski - Front-end Developer
+        </h1>
         <Title>
           <TitleEdit>
             <LetterMap>Kamil </LetterMap>
@@ -283,7 +285,7 @@ const Header = ({ ticking }) => {
         </Title>
         <Paragraph>
           <ParagraphEdit>
-            <LetterMap>Fron-end </LetterMap>
+            <LetterMap>Front-end </LetterMap>
           </ParagraphEdit>
           <ParagraphEdit>
             <LetterMap>Developer </LetterMap>

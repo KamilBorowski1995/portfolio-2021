@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.div``;
@@ -31,7 +31,7 @@ const StyledBurgerElement = styled.span`
   width: 40px;
   height: 5px;
   background-color: #f1f1f1;
-  border-radius: 5px;
+  border-radius: 50px;
   transition: 0.3s ease-in-out;
 
   transform: translateY(0);
@@ -69,7 +69,7 @@ const StyledNav = styled.nav`
   justify-content: space-evenly;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(NavLink)`
   margin: 0 auto;
   width: max-content;
   font-family: "Handlee", sans-serif;
@@ -84,6 +84,9 @@ const StyledLink = styled(Link)`
   :hover {
     transform: scale(1.1);
     color: #a5a5a5;
+  }
+  &.selected {
+    border-bottom: 2px solid #f1f1f1;
   }
 `;
 
@@ -115,26 +118,32 @@ const NavPages = () => {
       <WrapperPopup openNav={openNav}>
         <StyledNav>
           <StyledLink
+            exact
             to="/portfolio-2021/"
             onClick={() => setOpenNav(false)}
             onMouseEnter={MouseEnter}
             onMouseOut={MouseOut}
+            activeClassName="selected"
           >
             home
           </StyledLink>
           <StyledLink
+            exact
             to="/portfolio-2021/courses"
             onClick={() => setOpenNav(false)}
             onMouseEnter={MouseEnter}
             onMouseOut={MouseOut}
+            activeClassName="selected"
           >
             kursy
           </StyledLink>
           <StyledLink
+            exact
             to="/portfolio-2021/about"
             onClick={() => setOpenNav(false)}
             onMouseEnter={MouseEnter}
             onMouseOut={MouseOut}
+            activeClassName="selected"
           >
             Kontakt
           </StyledLink>

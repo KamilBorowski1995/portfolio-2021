@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { Link } from "react-router-dom";
-
 import "../../functions/Animated.css";
 
 import SVGAJs from "../../assets/svg/js.svg";
@@ -131,7 +129,7 @@ const ProjectElement = ({ name, tech, link, image }) => {
 
   return (
     <Wrapper>
-      <StyledImageBox data-anim="fade-up">
+      <StyledImageBox data-anim="fade-opacity">
         <StyledImage src={image} alt="obrazek ze strony" />
         <WrapperInfo>
           <StyledTitle>{name}</StyledTitle>
